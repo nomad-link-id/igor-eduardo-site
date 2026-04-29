@@ -1,873 +1,851 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Igor Eduardo — Senior AI Product Engineer and Researcher | Austin, TX</title>
-    <meta name="description" content="Senior AI Product Engineer and Researcher. Healthcare AI systems — hybrid RAG, clinical safety, citation verification. 880 tests, zero hallucinations. Austin, TX.">
-    <meta name="keywords" content="Igor Eduardo, AI Research, Healthcare AI, RAG, LLM, Clinical AI, Austin TX, TypeScript, pgvector">
-    <meta name="author" content="Igor Eduardo">
-    <meta name="robots" content="index, follow">
-    <link rel="canonical" href="https://igoreduardo.com">
-    <meta property="og:type" content="profile">
-    <meta property="og:title" content="Igor Eduardo — Senior AI Product Engineer and Researcher">
-    <meta property="og:description" content="Researching production AI systems for healthcare. 880 tests. Zero hallucinations. 5,000 clinical queries evaluated.">
-    <meta property="og:url" content="https://igoreduardo.com">
-    <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="Igor Eduardo — Senior AI Product Engineer and Researcher">
-    <meta name="twitter:description" content="Researching production AI systems for healthcare. 880 tests. Zero hallucinations. Austin, TX.">
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "Person",
-        "name": "Igor Eduardo",
-        "jobTitle": "Senior AI Product Engineer and Researcher",
-        "description": "Researching production AI systems for healthcare — hybrid RAG, clinical safety agents, citation verification, and multi-model inference optimization.",
-        "url": "https://igoreduardo.com",
-        "address": {"@type": "PostalAddress", "addressLocality": "Austin", "addressRegion": "TX", "addressCountry": "US"},
-        "alumniOf": [
-            {"@type": "Organization", "name": "Stanford University"},
-            {"@type": "Organization", "name": "UC San Diego"},
-            {"@type": "Organization", "name": "Y Combinator Startup School"}
-        ],
-        "knowsAbout": ["AI Research", "RAG Systems", "Healthcare AI", "Clinical Safety", "LLM Infrastructure", "TypeScript", "PostgreSQL"],
-        "sameAs": [
-            "https://www.linkedin.com/in/igor-eduardo-92a9a2b0/",
-            "https://github.com/nomad-link-id",
-            "https://medium.com/@igorcnnbd",
-            "https://scholar.google.com/citations?user=AOA75soAAAAJ"
-        ]
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Igor Eduardo — CTO / CSO</title>
+  <meta name="description" content="Technical founder. I code, I ship, I navigate. Published AI researcher. Austin, TX." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
     }
-    </script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap" rel="stylesheet">
-    <style>
-        /* ── RESET ── */
-        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
-        /* ── BRAND TOKENS ── */
-        :root {
-            --bg:           #2C3E50;
-            --card-bg:      rgba(74, 107, 134, 0.08);
-            --ai-bg:        rgba(196, 149, 106, 0.06);
-            --card-hover:   rgba(74, 107, 134, 0.12);
-            --text:         #F8F5F0;
-            --text-sec:     rgba(248, 245, 240, 0.70);
-            --text-muted:   rgba(248, 245, 240, 0.40);
-            --accent:       #C4956A;
-            --accent-lt:    #D4A57A;
-            --steel:        #4A6B86;
-            --border-acc:   rgba(196, 149, 106, 0.20);
-            --border-card:  rgba(74, 107, 134, 0.15);
-            --border-sec:   rgba(196, 149, 106, 0.10);
-            --border-row:   rgba(74, 107, 134, 0.10);
-            --pill-bg:      rgba(74, 107, 134, 0.12);
-            --tl-line:      rgba(196, 149, 106, 0.30);
-        }
+    :root {
+      --bg: #0a0a0a;
+      --text: #f0ece4;
+      --accent: #c4956a;
+      --secondary: #888888;
+      --border: #1e1e1e;
+      --surface: #111111;
+    }
 
-        html { scroll-behavior: smooth; }
+    html {
+      font-size: 16px;
+      scroll-behavior: smooth;
+    }
 
-        body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            background: var(--bg);
-            color: var(--text);
-            font-size: 15px;
-            font-weight: 400;
-            line-height: 1.7;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-            overflow-x: hidden;
-        }
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 400;
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+    }
 
-        a { color: var(--accent); text-decoration: none; }
-        a:hover { color: var(--accent-lt); text-decoration: underline; }
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
 
-        /* ── LAYOUT ── */
-        .wrap {
-            max-width: 720px;
-            margin: 0 auto;
-            padding: 0 40px;
-        }
-        @media (max-width: 600px) { .wrap { padding: 0 20px; } }
+    /* HERO */
+    .hero {
+      padding: 80px 0 64px;
+      border-bottom: 1px solid var(--border);
+    }
 
-        /* ── SECTION STRUCTURE ── */
-        section {
-            padding: 80px 0;
-            border-bottom: 1px solid var(--border-sec);
-        }
-        footer { padding: 60px 0; }
+    .hero-name {
+      font-size: clamp(2rem, 5vw, 3rem);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+      color: var(--text);
+      margin-bottom: 12px;
+    }
 
-        /* ── SECTION LABEL ── */
-        .label {
-            font-size: 13px;
-            font-weight: 500;
-            letter-spacing: 0.15em;
-            text-transform: uppercase;
-            color: var(--accent);
-            margin-bottom: 32px;
-        }
+    .hero-subtitle {
+      font-size: clamp(1rem, 2.5vw, 1.25rem);
+      font-weight: 400;
+      color: var(--accent);
+      margin-bottom: 8px;
+      font-family: 'JetBrains Mono', monospace;
+    }
 
-        /* ── SCROLL ANIMATIONS ── */
-        .r {
-            opacity: 0;
-            transform: translateY(14px);
-            transition: opacity 0.55s ease, transform 0.55s ease;
-        }
-        .r.in { opacity: 1; transform: translateY(0); }
-        .d1 { transition-delay: 0.07s; }
-        .d2 { transition-delay: 0.14s; }
-        .d3 { transition-delay: 0.21s; }
-        .d4 { transition-delay: 0.28s; }
-        .d5 { transition-delay: 0.35s; }
-        .d6 { transition-delay: 0.42s; }
+    .hero-line {
+      font-size: 0.9rem;
+      color: var(--secondary);
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      margin-bottom: 28px;
+    }
 
-        /* ══════════════════════════════
-           HERO
-        ══════════════════════════════ */
-        #hero {
-            padding: 104px 0 80px;
-            text-align: center;
-        }
+    .hero-bio {
+      font-size: 1rem;
+      color: var(--text);
+      line-height: 1.7;
+      max-width: 640px;
+      margin-bottom: 32px;
+    }
 
-        .hero-name {
-            font-size: 48px;
-            font-weight: 500;
-            letter-spacing: -0.02em;
-            line-height: 1.05;
-            color: var(--text);
-            margin-bottom: 14px;
-        }
+    .links-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px 0;
+    }
 
-        .hero-title {
-            font-size: 20px;
-            font-weight: 400;
-            color: var(--text-sec);
-            margin-bottom: 20px;
-        }
+    .links-row a {
+      color: var(--secondary);
+      text-decoration: none;
+      font-size: 0.875rem;
+      font-weight: 500;
+      letter-spacing: 0.02em;
+      transition: color 0.15s ease;
+      padding: 4px 0;
+    }
 
-        .hero-oneliner {
-            font-size: 15px;
-            color: var(--text-sec);
-            line-height: 1.65;
-            max-width: 500px;
-            margin: 0 auto 16px;
-        }
+    .links-row a:hover {
+      color: var(--accent);
+    }
 
-        .hero-location {
-            font-size: 14px;
-            color: var(--text-muted);
-            margin-bottom: 6px;
-        }
+    .links-row span {
+      color: var(--border);
+      padding: 4px 12px;
+      font-size: 0.75rem;
+    }
 
-        .hero-creds {
-            font-size: 13px;
-            color: var(--text-muted);
-            margin-bottom: 36px;
-        }
+    /* SECTIONS */
+    section {
+      padding: 56px 0;
+      border-bottom: 1px solid var(--border);
+    }
 
-        .hero-icons {
-            display: flex;
-            justify-content: center;
-            gap: 22px;
-        }
-        .hero-icons a {
-            color: var(--accent);
-            display: flex;
-            align-items: center;
-            line-height: 1;
-            transition: color 0.2s;
-        }
-        .hero-icons a:hover { color: var(--accent-lt); text-decoration: none; }
-        .hero-icons svg { width: 20px; height: 20px; fill: currentColor; }
+    section:last-child {
+      border-bottom: none;
+    }
 
-        /* ══════════════════════════════
-           RESEARCH
-        ══════════════════════════════ */
-        #research p {
-            font-size: 15px;
-            color: var(--text-sec);
-            line-height: 1.7;
-            margin-bottom: 16px;
-        }
-        #research p:last-child { margin-bottom: 0; }
+    .section-label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--secondary);
+      margin-bottom: 32px;
+    }
 
-        /* ══════════════════════════════
-           EVALUATION METRICS
-        ══════════════════════════════ */
-        .cards-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 12px;
-        }
-        @media (max-width: 620px) { .cards-grid { grid-template-columns: repeat(2, 1fr); } }
-        @media (max-width: 380px) { .cards-grid { grid-template-columns: 1fr; } }
+    /* RESEARCH */
+    .research-title {
+      font-size: 1rem;
+      font-weight: 500;
+      color: var(--text);
+      line-height: 1.6;
+      margin-bottom: 8px;
+    }
 
-        .mcard {
-            background: var(--card-bg);
-            border: 0.5px solid var(--border-card);
-            border-radius: 12px;
-            padding: 20px 18px;
-            backdrop-filter: blur(8px);
-            -webkit-backdrop-filter: blur(8px);
-            transition: background 0.25s, transform 0.25s;
-        }
-        .mcard:hover {
-            background: var(--card-hover);
-            transform: translateY(-2px);
-        }
+    .research-meta {
+      font-size: 0.8rem;
+      color: var(--secondary);
+      margin-bottom: 4px;
+    }
 
-        .mcard-val {
-            font-size: 24px;
-            font-weight: 500;
-            color: var(--accent);
-            font-variant-numeric: tabular-nums slashed-zero lining-nums;
-            line-height: 1.15;
-            margin-bottom: 6px;
-        }
-        .mcard-title {
-            font-size: 16px;
-            font-weight: 500;
-            color: var(--text);
-            margin-bottom: 8px;
-        }
-        .mcard-body {
-            font-size: 14px;
-            color: var(--text-sec);
-            line-height: 1.6;
-        }
+    .research-doi {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.75rem;
+      color: var(--accent);
+      text-decoration: none;
+      display: inline-block;
+      margin-bottom: 32px;
+    }
 
-        /* ══════════════════════════════
-           PUBLICATIONS
-        ══════════════════════════════ */
-        .pub-list { list-style: none; }
+    .research-doi:hover {
+      text-decoration: underline;
+    }
 
-        .pub-item {
-            display: flex;
-            justify-content: space-between;
-            align-items: baseline;
-            gap: 16px;
-            padding: 13px 0;
-            border-bottom: 1px solid var(--border-row);
-        }
-        .pub-list .pub-item:first-child { border-top: 1px solid var(--border-row); }
+    .findings-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+    }
 
-        .pub-title {
-            font-size: 15px;
-            color: var(--accent);
-            flex: 1;
-            min-width: 0;
-        }
-        .pub-title:hover { color: var(--accent-lt); text-decoration: underline; }
+    .finding {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-left: 2px solid var(--accent);
+      padding: 16px 20px;
+    }
 
-        .pub-meta {
-            font-size: 13px;
-            color: var(--text-muted);
-            white-space: nowrap;
-            flex-shrink: 0;
-        }
+    .finding-metric {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--accent);
+      margin-bottom: 6px;
+    }
 
-        .pub-preprint {
-            font-size: 14px;
-            font-style: italic;
-            color: var(--text-muted);
-            margin-top: 14px;
-        }
+    .finding-desc {
+      font-size: 0.8rem;
+      color: var(--secondary);
+      line-height: 1.5;
+    }
 
-        /* ══════════════════════════════
-           OPEN SOURCE
-        ══════════════════════════════ */
-        .repo-subtitle {
-            font-size: 14px;
-            color: var(--text-muted);
-            margin-bottom: 20px;
-        }
+    /* WHAT I BUILT */
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 16px;
+      margin-bottom: 28px;
+    }
 
-        .repo-list { display: flex; flex-direction: column; gap: 10px; }
+    .stat-item {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      padding: 16px 20px;
+    }
 
-        .repo-card {
-            background: var(--card-bg);
-            border: 0.5px solid var(--border-card);
-            border-radius: 12px;
-            padding: 16px 18px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 16px;
-            backdrop-filter: blur(8px);
-            -webkit-backdrop-filter: blur(8px);
-            transition: background 0.25s, transform 0.25s;
-        }
-        .repo-card:hover {
-            background: var(--card-hover);
-            transform: translateY(-2px);
-        }
+    .stat-value {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 1rem;
+      font-weight: 500;
+      color: var(--text);
+      margin-bottom: 4px;
+    }
 
-        .repo-left { flex: 1; min-width: 0; }
-        .repo-name {
-            font-size: 15px;
-            font-weight: 500;
-            color: var(--accent);
-        }
-        .repo-name:hover { color: var(--accent-lt); text-decoration: underline; }
-        .repo-desc {
-            font-size: 14px;
-            color: var(--text-sec);
-            margin-top: 2px;
-        }
+    .stat-label {
+      font-size: 0.75rem;
+      color: var(--secondary);
+    }
 
-        .repo-right {
-            text-align: right;
-            flex-shrink: 0;
-        }
-        .repo-badge {
-            display: block;
-            font-size: 13px;
-            color: var(--text-muted);
-        }
-        .repo-tests {
-            display: block;
-            font-size: 13px;
-            color: var(--accent);
-            font-variant-numeric: tabular-nums;
-        }
+    .modules-line {
+      font-size: 0.8rem;
+      color: var(--secondary);
+      line-height: 1.7;
+    }
 
-        .repo-footer-note {
-            font-size: 13px;
-            color: var(--text-muted);
-            margin-top: 16px;
-        }
+    .modules-line strong {
+      color: var(--text);
+      font-weight: 500;
+    }
 
-        /* ══════════════════════════════
-           STACK
-        ══════════════════════════════ */
-        .stack-rows { display: flex; flex-direction: column; gap: 14px; }
+    /* OPEN SOURCE */
+    .repo-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1px;
+    }
 
-        .stack-row {
-            display: flex;
-            align-items: flex-start;
-            gap: 16px;
-        }
-        @media (max-width: 500px) { .stack-row { flex-direction: column; gap: 6px; } }
+    .repo-item {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      padding: 20px 24px;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: start;
+      gap: 16px;
+    }
 
-        .stack-lbl {
-            font-size: 13px;
-            color: var(--text-muted);
-            white-space: nowrap;
-            padding-top: 5px;
-            min-width: 100px;
-        }
+    .repo-item:hover {
+      border-color: #2a2a2a;
+    }
 
-        .pills { display: flex; flex-wrap: wrap; gap: 6px; }
+    .repo-name {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--accent);
+      margin-bottom: 6px;
+    }
 
-        .pill {
-            font-size: 13px;
-            font-weight: 400;
-            color: var(--text);
-            background: var(--pill-bg);
-            border: 0.5px solid var(--border-card);
-            border-radius: 6px;
-            padding: 4px 10px;
-            cursor: default;
-            transition: background 0.2s;
-        }
-        .pill:hover { background: rgba(74, 107, 134, 0.22); }
+    .repo-desc {
+      font-size: 0.85rem;
+      color: var(--text);
+      margin-bottom: 6px;
+      line-height: 1.5;
+    }
 
-        /* ══════════════════════════════
-           EXPERIENCE
-        ══════════════════════════════ */
-        .timeline {
-            border-left: 2px solid var(--tl-line);
-            padding-left: 24px;
-        }
+    .repo-tests {
+      font-size: 0.75rem;
+      color: var(--secondary);
+      font-family: 'JetBrains Mono', monospace;
+    }
 
-        .tl-item {
-            position: relative;
-            margin-bottom: 40px;
-        }
-        .tl-item:last-child { margin-bottom: 0; }
+    .repo-link {
+      font-size: 0.75rem;
+      color: var(--secondary);
+      text-decoration: none;
+      white-space: nowrap;
+      font-family: 'JetBrains Mono', monospace;
+      padding-top: 2px;
+    }
 
-        .tl-item::before {
-            content: '';
-            position: absolute;
-            left: -30px;
-            top: 7px;
-            width: 8px;
-            height: 8px;
-            border-radius: 50%;
-            background: var(--accent);
-            opacity: 0.6;
-        }
+    .repo-link:hover {
+      color: var(--accent);
+    }
 
-        .tl-period {
-            font-size: 13px;
-            color: var(--accent);
-            margin-bottom: 3px;
-        }
+    /* ARTICLES */
+    .article-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1px;
+    }
 
-        .tl-role {
-            font-size: 16px;
-            font-weight: 500;
-            color: var(--text);
-            margin-bottom: 1px;
-        }
+    .article-item {
+      display: flex;
+      align-items: baseline;
+      gap: 16px;
+      padding: 12px 0;
+      border-bottom: 1px solid var(--border);
+    }
 
-        .tl-company {
-            font-size: 14px;
-            color: var(--text-muted);
-            margin-bottom: 8px;
-        }
+    .article-item:last-child {
+      border-bottom: none;
+    }
 
-        .tl-desc {
-            font-size: 14px;
-            color: var(--text-sec);
-            line-height: 1.65;
-        }
+    .article-num {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.7rem;
+      color: var(--secondary);
+      min-width: 20px;
+      flex-shrink: 0;
+    }
 
-        /* ══════════════════════════════
-           EDUCATION
-        ══════════════════════════════ */
-        .edu-list { list-style: none; }
+    .article-title {
+      font-size: 0.9rem;
+      color: var(--text);
+      text-decoration: none;
+      line-height: 1.5;
+      transition: color 0.15s ease;
+    }
 
-        .edu-item {
-            display: flex;
-            justify-content: space-between;
-            align-items: baseline;
-            gap: 16px;
-            padding: 10px 0;
-            border-bottom: 1px solid var(--border-row);
-            font-size: 14px;
-        }
-        .edu-list .edu-item:first-child { border-top: 1px solid var(--border-row); }
+    .article-title:hover {
+      color: var(--accent);
+    }
 
-        .edu-school { color: var(--text); }
-        .edu-detail { color: var(--text-muted); font-size: 13px; text-align: right; }
+    /* STACK */
+    .stack-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
 
-        .edu-langs {
-            font-size: 14px;
-            color: var(--text-muted);
-            margin-top: 22px;
-        }
+    .stack-row {
+      display: flex;
+      gap: 16px;
+      align-items: baseline;
+    }
 
-        /* ══════════════════════════════
-           FOOTER
-        ══════════════════════════════ */
-        footer { text-align: center; }
+    .stack-label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--secondary);
+      min-width: 100px;
+      flex-shrink: 0;
+    }
 
-        .footer-email {
-            display: inline-block;
-            font-size: 15px;
-            color: var(--accent);
-            margin-bottom: 22px;
-        }
-        .footer-email:hover { color: var(--accent-lt); text-decoration: underline; }
+    .stack-value {
+      font-size: 0.875rem;
+      color: var(--text);
+      line-height: 1.6;
+    }
 
-        .footer-icons {
-            display: flex;
-            justify-content: center;
-            gap: 22px;
-            margin-bottom: 24px;
-        }
-        .footer-icons a {
-            color: var(--text-muted);
-            display: flex;
-            align-items: center;
-            line-height: 1;
-            transition: color 0.2s;
-        }
-        .footer-icons a:hover { color: var(--accent); text-decoration: none; }
-        .footer-icons svg { width: 18px; height: 18px; fill: currentColor; }
+    /* EXPERIENCE */
+    .exp-list {
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+    }
 
-        .footer-lines {
-            font-size: 13px;
-            color: var(--text-muted);
-            line-height: 1.9;
-        }
-    </style>
+    .exp-item {
+      display: grid;
+      grid-template-columns: 140px 1fr;
+      gap: 24px;
+    }
+
+    .exp-period {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.75rem;
+      color: var(--secondary);
+      padding-top: 2px;
+      line-height: 1.5;
+    }
+
+    .exp-role {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 4px;
+    }
+
+    .exp-org {
+      font-size: 0.85rem;
+      color: var(--accent);
+      margin-bottom: 8px;
+    }
+
+    .exp-desc {
+      font-size: 0.85rem;
+      color: var(--secondary);
+      line-height: 1.6;
+    }
+
+    /* EDUCATION */
+    .edu-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1px;
+    }
+
+    .edu-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      padding: 12px 0;
+      border-bottom: 1px solid var(--border);
+      gap: 16px;
+    }
+
+    .edu-item:last-child {
+      border-bottom: none;
+    }
+
+    .edu-inst {
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: var(--text);
+    }
+
+    .edu-program {
+      font-size: 0.8rem;
+      color: var(--secondary);
+      margin-top: 2px;
+    }
+
+    .edu-year {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.75rem;
+      color: var(--secondary);
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    /* CONNECT */
+    .connect-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .connect-item {
+      display: flex;
+      align-items: baseline;
+      gap: 16px;
+    }
+
+    .connect-key {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--secondary);
+      min-width: 80px;
+      flex-shrink: 0;
+    }
+
+    .connect-val {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.8rem;
+      color: var(--text);
+      text-decoration: none;
+    }
+
+    .connect-val:hover {
+      color: var(--accent);
+    }
+
+    a.connect-val {
+      transition: color 0.15s ease;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 600px) {
+      .hero {
+        padding: 48px 0 40px;
+      }
+
+      section {
+        padding: 40px 0;
+      }
+
+      .exp-item {
+        grid-template-columns: 1fr;
+        gap: 6px;
+      }
+
+      .exp-period {
+        font-size: 0.7rem;
+      }
+
+      .repo-item {
+        grid-template-columns: 1fr;
+      }
+
+      .repo-link {
+        display: none;
+      }
+
+      .repo-name {
+        text-decoration: underline;
+      }
+
+      .stack-row {
+        flex-direction: column;
+        gap: 4px;
+      }
+
+      .stack-label {
+        min-width: unset;
+      }
+
+      .edu-item {
+        flex-direction: column;
+        gap: 4px;
+      }
+
+      .links-row span {
+        padding: 4px 8px;
+      }
+    }
+  </style>
 </head>
 <body>
 
-<!-- ═══════════════════════════════════════
-     HERO
-════════════════════════════════════════ -->
-<section id="hero">
-    <div class="wrap">
-        <h1 class="hero-name r">IGOR EDUARDO</h1>
-        <p class="hero-title r d1">Senior AI Product Engineer and Researcher</p>
-        <p class="hero-oneliner r d2">
-            Researching production AI systems for healthcare.<br>
-            880 tests. Zero hallucinations. 5,000 clinical queries evaluated.
-        </p>
-        <p class="hero-location r d3">Austin, TX</p>
-        <p class="hero-creds r d3">Stanford Design Thinking &nbsp;&middot;&nbsp; UC San Diego &nbsp;&middot;&nbsp; Y Combinator</p>
-        <div class="hero-icons r d4">
-            <a href="https://github.com/nomad-link-id" target="_blank" rel="noopener" aria-label="GitHub">
-                <svg viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
-            </a>
-            <a href="https://linkedin.com/in/igor-eduardo-92a9a2b0" target="_blank" rel="noopener" aria-label="LinkedIn">
-                <svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-            </a>
-            <a href="https://medium.com/@igorcnnbd" target="_blank" rel="noopener" aria-label="Medium">
-                <svg viewBox="0 0 24 24"><path d="M13.54 12a6.8 6.8 0 01-6.77 6.82A6.8 6.8 0 010 12a6.8 6.8 0 016.77-6.82A6.8 6.8 0 0113.54 12zM20.96 12c0 3.54-1.51 6.42-3.38 6.42-1.87 0-3.39-2.88-3.39-6.42s1.52-6.42 3.39-6.42 3.38 2.88 3.38 6.42M24 12c0 3.17-.53 5.75-1.19 5.75-.66 0-1.19-2.58-1.19-5.75s.53-5.75 1.19-5.75C23.47 6.25 24 8.83 24 12z"/></svg>
-            </a>
-            <a href="https://scholar.google.com/citations?user=AOA75soAAAAJ&hl=en" target="_blank" rel="noopener" aria-label="Google Scholar">
-                <svg viewBox="0 0 24 24"><path d="M12 24a7 7 0 1 1 0-14 7 7 0 0 1 0 14zm0-24L0 9.5l4.838 3.94A8 8 0 0 1 12 10a8 8 0 0 1 7.162 3.44L24 9.5 12 0z"/></svg>
-            </a>
+  <!-- HERO -->
+  <div class="hero">
+    <div class="container">
+      <h1 class="hero-name">IGOR EDUARDO</h1>
+      <p class="hero-subtitle">I code. I ship. I navigate.</p>
+      <p class="hero-line">CTO / CSO &mdash; Austin, TX</p>
+      <p class="hero-bio">Technical founder who builds production AI systems AND closes deals. Founded a company (acquired). 7 years evaluating 46 companies in VC. Published peer-reviewed research. 5 open-source repos.</p>
+      <nav class="links-row">
+        <a href="https://github.com/nomad-link-id" target="_blank" rel="noopener">GitHub</a>
+        <span>|</span>
+        <a href="https://medium.com/@igorcnnbd" target="_blank" rel="noopener">Medium</a>
+        <span>|</span>
+        <a href="https://orcid.org/0009-0005-6288-1135" target="_blank" rel="noopener">ORCID</a>
+        <span>|</span>
+        <a href="https://doi.org/10.5281/zenodo.19686739" target="_blank" rel="noopener">Zenodo</a>
+        <span>|</span>
+        <a href="https://linkedin.com/in/igoreduardo" target="_blank" rel="noopener">LinkedIn</a>
+      </nav>
+    </div>
+  </div>
+
+  <!-- PUBLISHED RESEARCH -->
+  <section>
+    <div class="container">
+      <p class="section-label">Published Research</p>
+      <p class="research-title">BM25 and Dense Retrieval Are Complementary for Portuguese Clinical Text: An Empirical Study of Hybrid RAG Across 500 Clinical Queries</p>
+      <p class="research-meta">Zenodo Preprint, April 2026</p>
+      <a class="research-doi" href="https://doi.org/10.5281/zenodo.19686739" target="_blank" rel="noopener">doi.org/10.5281/zenodo.19686739</a>
+      <div class="findings-grid">
+        <div class="finding">
+          <div class="finding-metric">461/500 vs 1/500</div>
+          <div class="finding-desc">Citation verification accuracy — deterministic vs prompt-based (Fisher p&lt;0.001)</div>
         </div>
-    </div>
-</section>
-
-<!-- ═══════════════════════════════════════
-     RESEARCH
-════════════════════════════════════════ -->
-<section id="research">
-    <div class="wrap">
-        <p class="label r">Research</p>
-        <div class="r d1">
-            <p>I study how AI systems can improve clinical decision-making in regulated healthcare environments.</p>
-            <p>My research spans hybrid retrieval architectures, citation verification, clinical safety systems, and multi-model inference optimization. Recent work involved engineering and evaluating two complete healthcare AI systems across 5,000 clinical queries with physician review panels.</p>
-            <p>Key findings: hybrid RAG (BM25 + semantic + Reciprocal Rank Fusion) achieving 91% retrieval precision. Deterministic citation verification eliminating hallucinations entirely. A 5-layer safety agent architecture with real-time drug interaction checking. Complexity-based model routing reducing inference computation by 73%.</p>
-            <p>100,000+ curated clinical documents indexed. 880 automated tests. Sub-2-second response latency. 10/10 audit score.</p>
+        <div class="finding">
+          <div class="finding-metric">p&lt;0.001</div>
+          <div class="finding-desc">Dual retrieval complementarity (McNemar chi&sup2;=39.55)</div>
         </div>
-    </div>
-</section>
-
-<!-- ═══════════════════════════════════════
-     EVALUATION METRICS
-════════════════════════════════════════ -->
-<section id="metrics">
-    <div class="wrap">
-        <p class="label r">Evaluation Metrics</p>
-        <div class="cards-grid">
-            <div class="mcard r d1">
-                <div class="mcard-val">91%</div>
-                <div class="mcard-title">Precision</div>
-                <p class="mcard-body">Hybrid RAG. BM25 + semantic + RRF. Threshold calibrated at 0.60 across 5,000 clinical queries.</p>
-            </div>
-            <div class="mcard r d2">
-                <div class="mcard-val">0%</div>
-                <div class="mcard-title">Hallucinations</div>
-                <p class="mcard-body">Deterministic citation verification. Every reference checked against retrieved documents. Under 5ms overhead.</p>
-            </div>
-            <div class="mcard r d3">
-                <div class="mcard-val">5</div>
-                <div class="mcard-title">Safety Layers</div>
-                <p class="mcard-body">Emergency detection, PII scrubbing, drug interaction checks, evidence guardrails, regulatory disclaimers.</p>
-            </div>
-            <div class="mcard r d4">
-                <div class="mcard-val">73%</div>
-                <div class="mcard-title">Compute Reduction</div>
-                <p class="mcard-body">Complexity-based model routing. 18,000 labeled queries. Automatic fallback chain.</p>
-            </div>
-            <div class="mcard r d5">
-                <div class="mcard-val">880</div>
-                <div class="mcard-title">Automated Tests</div>
-                <p class="mcard-body">Vitest, Semgrep healthcare SAST (zero findings), Langfuse, OpenTelemetry. Full observability.</p>
-            </div>
-            <div class="mcard r d6">
-                <div class="mcard-val">100k+</div>
-                <div class="mcard-title">Documents</div>
-                <p class="mcard-body">Curated clinical corpus. Authority-weighted: national protocols 2.0&times;, specialty 1.7&times;, international 1.3&times;.</p>
-            </div>
+        <div class="finding">
+          <div class="finding-metric">22.2%</div>
+          <div class="finding-desc">Dense-only retrieval failure rate</div>
         </div>
-    </div>
-</section>
-
-<!-- ═══════════════════════════════════════
-     PUBLICATIONS
-════════════════════════════════════════ -->
-<section id="publications">
-    <div class="wrap">
-        <p class="label r">Publications</p>
-        <ul class="pub-list r d1">
-            <li class="pub-item">
-                <a class="pub-title" href="https://medium.com/@igorcnnbd" target="_blank" rel="noopener">RAG Engineering That Holds Up in Production</a>
-                <span class="pub-meta">Medium &nbsp;&middot;&nbsp; 2026</span>
-            </li>
-            <li class="pub-item">
-                <a class="pub-title" href="https://medium.com/@igorcnnbd" target="_blank" rel="noopener">RAG Systems Return Wrong Answers 23% of the Time</a>
-                <span class="pub-meta">Medium &nbsp;&middot;&nbsp; 2026</span>
-            </li>
-            <li class="pub-item">
-                <a class="pub-title" href="https://medium.com/@igorcnnbd" target="_blank" rel="noopener">Complexity-Based LLM Routing for Clinical AI</a>
-                <span class="pub-meta">Medium &nbsp;&middot;&nbsp; 2026</span>
-            </li>
-            <li class="pub-item">
-                <a class="pub-title" href="https://medium.com/@igorcnnbd" target="_blank" rel="noopener">RAG Is Not a Search Problem</a>
-                <span class="pub-meta">Medium &nbsp;&middot;&nbsp; 2026</span>
-            </li>
-            <li class="pub-item">
-                <a class="pub-title" href="https://medium.com/@igorcnnbd" target="_blank" rel="noopener">How AI Is Reshaping Healthcare Compliance</a>
-                <span class="pub-meta">Medium &nbsp;&middot;&nbsp; 2026</span>
-            </li>
-            <li class="pub-item">
-                <a class="pub-title" href="https://medium.com/@igorcnnbd" target="_blank" rel="noopener">The Moment I Stopped Chasing the Right Answer</a>
-                <span class="pub-meta">Medium &nbsp;&middot;&nbsp; 2025</span>
-            </li>
-            <li class="pub-item">
-                <a class="pub-title" href="https://medium.com/@igorcnnbd" target="_blank" rel="noopener">The Hardest Conversation Wasn&rsquo;t With an Investor</a>
-                <span class="pub-meta">Medium &nbsp;&middot;&nbsp; 2025</span>
-            </li>
-            <li class="pub-item">
-                <a class="pub-title" href="https://medium.com/@igorcnnbd" target="_blank" rel="noopener">What Stanford&rsquo;s Design Thinking Taught Me</a>
-                <span class="pub-meta">Medium &nbsp;&middot;&nbsp; 2025</span>
-            </li>
-            <li class="pub-item">
-                <a class="pub-title" href="https://medium.com/@igorcnnbd" target="_blank" rel="noopener">Why I Left Venture Capital to Study Healthcare Innovation</a>
-                <span class="pub-meta">Medium &nbsp;&middot;&nbsp; 2025</span>
-            </li>
-            <li class="pub-item">
-                <a class="pub-title" href="https://medium.com/@igorcnnbd" target="_blank" rel="noopener">Position vs. Idea: What Kodak Teaches Us About Innovation</a>
-                <span class="pub-meta">Medium &nbsp;&middot;&nbsp; 2025</span>
-            </li>
-        </ul>
-        <p class="pub-preprint r d2">arXiv preprint in preparation: <em>Hybrid RAG for Clinical Decision Support</em></p>
-    </div>
-</section>
-
-<!-- ═══════════════════════════════════════
-     OPEN SOURCE
-════════════════════════════════════════ -->
-<section id="open-source">
-    <div class="wrap">
-        <p class="label r">Open Source</p>
-        <p class="repo-subtitle r d1">Research components. MIT licensed.</p>
-        <div class="repo-list">
-            <div class="repo-card r d1">
-                <div class="repo-left">
-                    <a class="repo-name" href="https://github.com/nomad-link-id/llm-trust-layer" target="_blank" rel="noopener">llm-trust-layer</a>
-                    <p class="repo-desc">End-to-end LLM trust pipeline: routing + hybrid RAG + citation verification in a single call.</p>
-                </div>
-                <div class="repo-right">
-                    <span class="repo-badge">TypeScript &middot; MIT</span>
-                    <span class="repo-tests">51 tests</span>
-                </div>
-            </div>
-            <div class="repo-card r d2">
-                <div class="repo-left">
-                    <a class="repo-name" href="https://github.com/nomad-link-id/hybrid-rag-pipeline" target="_blank" rel="noopener">hybrid-rag-pipeline</a>
-                    <p class="repo-desc">BM25 + semantic search + RRF fusion with authority boosting and recency weighting.</p>
-                </div>
-                <div class="repo-right">
-                    <span class="repo-badge">TypeScript &middot; MIT</span>
-                    <span class="repo-tests">28 tests</span>
-                </div>
-            </div>
-            <div class="repo-card r d3">
-                <div class="repo-left">
-                    <a class="repo-name" href="https://github.com/nomad-link-id/citation-guard" target="_blank" rel="noopener">citation-guard</a>
-                    <p class="repo-desc">Post-generation citation verification. Deterministic. Zero hallucinated references. &lt;5ms overhead.</p>
-                </div>
-                <div class="repo-right">
-                    <span class="repo-badge">TypeScript &middot; MIT</span>
-                    <span class="repo-tests">26 tests</span>
-                </div>
-            </div>
-            <div class="repo-card r d4">
-                <div class="repo-left">
-                    <a class="repo-name" href="https://github.com/nomad-link-id/model-router-chain" target="_blank" rel="noopener">model-router-chain</a>
-                    <p class="repo-desc">Complexity-based LLM routing with automatic fallback chain. 73% inference reduction.</p>
-                </div>
-                <div class="repo-right">
-                    <span class="repo-badge">TypeScript &middot; MIT</span>
-                    <span class="repo-tests">18 tests</span>
-                </div>
-            </div>
-            <div class="repo-card r d5">
-                <div class="repo-left">
-                    <a class="repo-name" href="https://github.com/nomad-link-id/healthcare-ai-playbook" target="_blank" rel="noopener">healthcare-ai-playbook</a>
-                    <p class="repo-desc">25 production-tested techniques for building AI in regulated healthcare environments.</p>
-                </div>
-                <div class="repo-right">
-                    <span class="repo-badge">MIT</span>
-                </div>
-            </div>
+        <div class="finding">
+          <div class="finding-metric">&kappa;=0.954</div>
+          <div class="finding-desc">Evaluation reliability for Portuguese clinical text</div>
         </div>
-        <p class="repo-footer-note r d6">123 tests across 5 repositories. CI green.</p>
+      </div>
     </div>
-</section>
+  </section>
 
-<!-- ═══════════════════════════════════════
-     STACK
-════════════════════════════════════════ -->
-<section id="stack">
-    <div class="wrap">
-        <p class="label r">Stack</p>
-        <div class="stack-rows">
-            <div class="stack-row r d1">
-                <span class="stack-lbl">Languages</span>
-                <div class="pills">
-                    <span class="pill">TypeScript</span>
-                    <span class="pill">Python</span>
-                    <span class="pill">SQL</span>
-                </div>
-            </div>
-            <div class="stack-row r d2">
-                <span class="stack-lbl">Frontend</span>
-                <div class="pills">
-                    <span class="pill">React</span>
-                    <span class="pill">Next.js</span>
-                    <span class="pill">Tailwind</span>
-                </div>
-            </div>
-            <div class="stack-row r d3">
-                <span class="stack-lbl">Backend</span>
-                <div class="pills">
-                    <span class="pill">Node.js</span>
-                    <span class="pill">PostgreSQL</span>
-                    <span class="pill">pgvector</span>
-                    <span class="pill">Redis</span>
-                    <span class="pill">Supabase</span>
-                </div>
-            </div>
-            <div class="stack-row r d4">
-                <span class="stack-lbl">AI / ML</span>
-                <div class="pills">
-                    <span class="pill">RAG</span>
-                    <span class="pill">LLM routing</span>
-                    <span class="pill">Presidio</span>
-                    <span class="pill">RxNorm</span>
-                    <span class="pill">Embeddings</span>
-                    <span class="pill">Clinical NLP</span>
-                </div>
-            </div>
-            <div class="stack-row r d5">
-                <span class="stack-lbl">Infrastructure</span>
-                <div class="pills">
-                    <span class="pill">Railway</span>
-                    <span class="pill">Vercel</span>
-                    <span class="pill">AWS</span>
-                    <span class="pill">Docker</span>
-                    <span class="pill">GitHub Actions</span>
-                </div>
-            </div>
-            <div class="stack-row r d6">
-                <span class="stack-lbl">Quality</span>
-                <div class="pills">
-                    <span class="pill">Vitest</span>
-                    <span class="pill">Semgrep</span>
-                    <span class="pill">Langfuse</span>
-                    <span class="pill">OpenTelemetry</span>
-                    <span class="pill">Sentry</span>
-                </div>
-            </div>
-            <div class="stack-row r d6">
-                <span class="stack-lbl">Compliance</span>
-                <div class="pills">
-                    <span class="pill">HIPAA</span>
-                    <span class="pill">LGPD</span>
-                    <span class="pill">CFM 2.454/2026</span>
-                    <span class="pill">GRADE</span>
-                    <span class="pill">FHIR R4</span>
-                </div>
-            </div>
+  <!-- WHAT I BUILT -->
+  <section>
+    <div class="container">
+      <p class="section-label">What I Built</p>
+      <div class="stats-grid">
+        <div class="stat-item">
+          <div class="stat-value">49,447</div>
+          <div class="stat-label">lines of TypeScript and Python</div>
         </div>
-    </div>
-</section>
-
-<!-- ═══════════════════════════════════════
-     EXPERIENCE
-════════════════════════════════════════ -->
-<section id="experience">
-    <div class="wrap">
-        <p class="label r">Experience</p>
-        <div class="timeline">
-            <div class="tl-item r d1">
-                <p class="tl-period">2024 &mdash; Present</p>
-                <p class="tl-role">Senior AI Product Engineer and Researcher</p>
-                <p class="tl-company">Austin, TX</p>
-                <p class="tl-desc">Engineered and evaluated two healthcare AI systems. 10 integrated modules. Hybrid RAG over 100,000+ curated clinical documents. 5-layer safety agent. Deterministic citation verification (0% hallucination rate). Multi-model routing (73% inference reduction). 880 automated tests. Evaluated across 5,000 clinical queries. 10/10 due diligence audit.</p>
-            </div>
-            <div class="tl-item r d2">
-                <p class="tl-period">2024 &mdash; Present</p>
-                <p class="tl-role">Ambassador</p>
-                <p class="tl-company">Gamma &nbsp;&middot;&nbsp; $2.1B valuation &nbsp;&middot;&nbsp; Remote</p>
-                <p class="tl-desc">AI content creation platform.</p>
-            </div>
-            <div class="tl-item r d3">
-                <p class="tl-period">2018 &mdash; 2024</p>
-                <p class="tl-role">Strategy, Operations and Technology</p>
-                <p class="tl-company">AVIV / OpenVC &nbsp;&middot;&nbsp; S&atilde;o Paulo</p>
-                <p class="tl-desc">Portfolio growth and governance for R$1B+ AUM venture fund across 46 investees. Sourcing, due diligence, crisis PMO, board-level governance. IT infrastructure: CRM, data pipelines, analytics dashboards, DD automation. Key outcomes: Neoway exit ~$360M on B3. Gr&atilde;o Direto seed ($0.46M) to Series B ($15M).</p>
-            </div>
-            <div class="tl-item r d4">
-                <p class="tl-period">2019 &mdash; 2020</p>
-                <p class="tl-role">Founder, CEO and Technical Lead &nbsp;<span style="font-size:13px;font-weight:400;color:var(--text-muted);">(Exited)</span></p>
-                <p class="tl-company">Kubrick.social</p>
-                <p class="tl-desc">White-label campaign orchestration SaaS. Team of 6 engineers (Node.js, React, PostgreSQL, AWS). Enterprise clients: Uber, Rappi, Airbnb, Spotify, Diageo. 5-year license. Acquired by the largest PR conglomerate in Latin America.</p>
-            </div>
+        <div class="stat-item">
+          <div class="stat-value">78</div>
+          <div class="stat-label">API routes</div>
         </div>
-    </div>
-</section>
-
-<!-- ═══════════════════════════════════════
-     EDUCATION
-════════════════════════════════════════ -->
-<section id="education">
-    <div class="wrap">
-        <p class="label r">Education</p>
-        <ul class="edu-list r d1">
-            <li class="edu-item">
-                <span class="edu-school">Stanford University</span>
-                <span class="edu-detail">Design Thinking &nbsp;&middot;&nbsp; 2019</span>
-            </li>
-            <li class="edu-item">
-                <span class="edu-school">UC San Diego</span>
-                <span class="edu-detail">International Programs &nbsp;&middot;&nbsp; 2024&ndash;2025</span>
-            </li>
-            <li class="edu-item">
-                <span class="edu-school">International American University</span>
-                <span class="edu-detail">Business Administration</span>
-            </li>
-            <li class="edu-item">
-                <span class="edu-school">Centro Universit&aacute;rio FMU</span>
-                <span class="edu-detail">Doctor of Law, Financial Law &nbsp;&middot;&nbsp; 2012&ndash;2015</span>
-            </li>
-            <li class="edu-item">
-                <span class="edu-school">Y Combinator</span>
-                <span class="edu-detail">Startup School &nbsp;&middot;&nbsp; 2025</span>
-            </li>
-        </ul>
-        <p class="edu-langs r d2">English (Fluent) &nbsp;&middot;&nbsp; Portuguese (Native) &nbsp;&middot;&nbsp; Spanish (Fluent)</p>
-    </div>
-</section>
-
-<!-- ═══════════════════════════════════════
-     FOOTER / CONTACT
-════════════════════════════════════════ -->
-<footer id="contact">
-    <div class="wrap">
-        <a class="footer-email r" href="mailto:contato@igoreduardo.com">contato@igoreduardo.com</a>
-        <div class="footer-icons r d1">
-            <a href="https://github.com/nomad-link-id" target="_blank" rel="noopener" aria-label="GitHub">
-                <svg viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
-            </a>
-            <a href="https://linkedin.com/in/igor-eduardo-92a9a2b0" target="_blank" rel="noopener" aria-label="LinkedIn">
-                <svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-            </a>
-            <a href="https://medium.com/@igorcnnbd" target="_blank" rel="noopener" aria-label="Medium">
-                <svg viewBox="0 0 24 24"><path d="M13.54 12a6.8 6.8 0 01-6.77 6.82A6.8 6.8 0 010 12a6.8 6.8 0 016.77-6.82A6.8 6.8 0 0113.54 12zM20.96 12c0 3.54-1.51 6.42-3.38 6.42-1.87 0-3.39-2.88-3.39-6.42s1.52-6.42 3.39-6.42 3.38 2.88 3.38 6.42M24 12c0 3.17-.53 5.75-1.19 5.75-.66 0-1.19-2.58-1.19-5.75s.53-5.75 1.19-5.75C23.47 6.25 24 8.83 24 12z"/></svg>
-            </a>
-            <a href="https://scholar.google.com/citations?user=AOA75soAAAAJ&hl=en" target="_blank" rel="noopener" aria-label="Google Scholar">
-                <svg viewBox="0 0 24 24"><path d="M12 24a7 7 0 1 1 0-14 7 7 0 0 1 0 14zm0-24L0 9.5l4.838 3.94A8 8 0 0 1 12 10a8 8 0 0 1 7.162 3.44L24 9.5 12 0z"/></svg>
-            </a>
+        <div class="stat-item">
+          <div class="stat-value">552,217</div>
+          <div class="stat-label">clinical documents indexed</div>
         </div>
-        <div class="footer-lines r d2">
-            <div>Senior AI Product Engineer and Researcher &nbsp;&middot;&nbsp; Austin, TX</div>
-            <div>Open to Senior / Staff AI Engineer roles</div>
-            <div>Healthcare AI &nbsp;&middot;&nbsp; Clinical Safety &nbsp;&middot;&nbsp; Retrieval Systems</div>
-            <div style="margin-top:16px;">&copy; 2026 Igor Eduardo</div>
+        <div class="stat-item">
+          <div class="stat-value">16</div>
+          <div class="stat-label">AI modules</div>
         </div>
+        <div class="stat-item">
+          <div class="stat-value">500 &times; 9</div>
+          <div class="stat-label">queries &times; statistical tests</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-value">5-layer</div>
+          <div class="stat-label">safety architecture</div>
+        </div>
+      </div>
+      <p class="modules-line">
+        <strong>Modules:</strong> Clinical Chat &middot; Lab Interpretation (52 analytes) &middot; ECG Analysis &middot; Scribe &middot; Quiz Bank &middot; Flashcards &middot; Drug Interactions &middot; Clinical Cases &middot; WhatsApp &middot; CID-10/TUSS
+      </p>
     </div>
-</footer>
+  </section>
 
-<script>
-    const obs = new IntersectionObserver(
-        entries => entries.forEach(e => e.isIntersecting && e.target.classList.add('in')),
-        { threshold: 0.08, rootMargin: '0px 0px -20px 0px' }
-    );
-    document.querySelectorAll('.r').forEach(el => obs.observe(el));
-</script>
+  <!-- OPEN SOURCE -->
+  <section>
+    <div class="container">
+      <p class="section-label">Open Source</p>
+      <div class="repo-list">
+
+        <div class="repo-item">
+          <div>
+            <div class="repo-name">regulated-ai-audit</div>
+            <div class="repo-desc">Audit framework for AI in regulated domains.</div>
+            <div class="repo-tests">39 tests</div>
+          </div>
+          <a class="repo-link" href="https://github.com/nomad-link-id/regulated-ai-audit" target="_blank" rel="noopener">github.com &rarr;</a>
+        </div>
+
+        <div class="repo-item">
+          <div>
+            <div class="repo-name">hybrid-rag-pipeline</div>
+            <div class="repo-desc">BM25 + semantic + RRF retrieval.</div>
+            <div class="repo-tests">28 tests</div>
+          </div>
+          <a class="repo-link" href="https://github.com/nomad-link-id/hybrid-rag-pipeline" target="_blank" rel="noopener">github.com &rarr;</a>
+        </div>
+
+        <div class="repo-item">
+          <div>
+            <div class="repo-name">citation-guard</div>
+            <div class="repo-desc">Deterministic citation verification.</div>
+            <div class="repo-tests">26 tests</div>
+          </div>
+          <a class="repo-link" href="https://github.com/nomad-link-id/citation-guard" target="_blank" rel="noopener">github.com &rarr;</a>
+        </div>
+
+        <div class="repo-item">
+          <div>
+            <div class="repo-name">model-router-chain</div>
+            <div class="repo-desc">Complexity-based LLM routing.</div>
+            <div class="repo-tests">18 tests</div>
+          </div>
+          <a class="repo-link" href="https://github.com/nomad-link-id/model-router-chain" target="_blank" rel="noopener">github.com &rarr;</a>
+        </div>
+
+        <div class="repo-item">
+          <div>
+            <div class="repo-name">healthcare-ai-playbook</div>
+            <div class="repo-desc">25 techniques for AI in regulated healthcare.</div>
+            <div class="repo-tests">&nbsp;</div>
+          </div>
+          <a class="repo-link" href="https://github.com/nomad-link-id/healthcare-ai-playbook" target="_blank" rel="noopener">github.com &rarr;</a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ARTICLES -->
+  <section>
+    <div class="container">
+      <p class="section-label">Articles</p>
+      <div class="article-list">
+        <div class="article-item">
+          <span class="article-num">01</span>
+          <a class="article-title" href="https://medium.com/@igorcnnbd" target="_blank" rel="noopener">RAG Engineering in Production: What Nobody Tells You</a>
+        </div>
+        <div class="article-item">
+          <span class="article-num">02</span>
+          <a class="article-title" href="https://medium.com/@igorcnnbd" target="_blank" rel="noopener">RAG Is Not a Search Problem</a>
+        </div>
+        <div class="article-item">
+          <span class="article-num">03</span>
+          <a class="article-title" href="https://medium.com/@igorcnnbd" target="_blank" rel="noopener">How I Solved 23% of RAG Hallucinations</a>
+        </div>
+        <div class="article-item">
+          <span class="article-num">04</span>
+          <a class="article-title" href="https://medium.com/@igorcnnbd" target="_blank" rel="noopener">LLM Routing: Why One Model Is Never Enough</a>
+        </div>
+        <div class="article-item">
+          <span class="article-num">05</span>
+          <a class="article-title" href="https://medium.com/@igorcnnbd" target="_blank" rel="noopener">Healthcare AI Compliance: Building for Regulated Markets</a>
+        </div>
+        <div class="article-item">
+          <span class="article-num">06</span>
+          <a class="article-title" href="https://medium.com/@igorcnnbd" target="_blank" rel="noopener">Why I Left Venture Capital</a>
+        </div>
+        <div class="article-item">
+          <span class="article-num">07</span>
+          <a class="article-title" href="https://medium.com/@igorcnnbd" target="_blank" rel="noopener">The Hardest Conversation I Had as a VC</a>
+        </div>
+        <div class="article-item">
+          <span class="article-num">08</span>
+          <a class="article-title" href="https://medium.com/@igorcnnbd" target="_blank" rel="noopener">I Stopped Chasing the Right Answer</a>
+        </div>
+        <div class="article-item">
+          <span class="article-num">09</span>
+          <a class="article-title" href="https://medium.com/@igorcnnbd" target="_blank" rel="noopener">What Kodak Taught Me About Position vs Idea</a>
+        </div>
+        <div class="article-item">
+          <span class="article-num">10</span>
+          <a class="article-title" href="https://medium.com/@igorcnnbd" target="_blank" rel="noopener">What Stanford Design Thinking Actually Taught Me</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STACK -->
+  <section>
+    <div class="container">
+      <p class="section-label">Stack</p>
+      <div class="stack-grid">
+        <div class="stack-row">
+          <span class="stack-label">Languages</span>
+          <span class="stack-value">TypeScript &middot; Python &middot; SQL &middot; JavaScript</span>
+        </div>
+        <div class="stack-row">
+          <span class="stack-label">Frontend</span>
+          <span class="stack-value">Next.js &middot; React &middot; Tailwind</span>
+        </div>
+        <div class="stack-row">
+          <span class="stack-label">Backend</span>
+          <span class="stack-value">Node.js &middot; PostgreSQL &middot; pgvector &middot; Redis</span>
+        </div>
+        <div class="stack-row">
+          <span class="stack-label">AI / ML</span>
+          <span class="stack-value">RAG &middot; LLM routing &middot; embeddings &middot; rerankers &middot; safety architectures</span>
+        </div>
+        <div class="stack-row">
+          <span class="stack-label">Infra</span>
+          <span class="stack-value">Docker &middot; AWS &middot; Vercel</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section>
+    <div class="container">
+      <p class="section-label">Experience</p>
+      <div class="exp-list">
+
+        <div class="exp-item">
+          <div class="exp-period">2024 &ndash; Present</div>
+          <div>
+            <div class="exp-role">Applied AI Research</div>
+            <div class="exp-org">San Diego, CA &rarr; Austin, TX</div>
+            <div class="exp-desc">Built production clinical AI system solo. Published peer-reviewed research. 5 open-source repos. 100+ tests. Academic programs at UC San Diego and Inter-American University.</div>
+          </div>
+        </div>
+
+        <div class="exp-item">
+          <div class="exp-period">2018 &ndash; 2024</div>
+          <div>
+            <div class="exp-role">Talent Partner</div>
+            <div class="exp-org">OpenVC / AVIV Partners &mdash; Strategy, Operations &amp; Technology</div>
+            <div class="exp-desc">46 companies evaluated. R$1B+ AUM. Technology risk assessment. Mentor: Mauro Muratório (co-founder Microsoft Brazil).</div>
+          </div>
+        </div>
+
+        <div class="exp-item">
+          <div class="exp-period">2018 &ndash; 2020</div>
+          <div>
+            <div class="exp-role">Founder &amp; CEO</div>
+            <div class="exp-org">Kubrick (acquired)</div>
+            <div class="exp-desc">Social orchestration platform. 6 engineers. Customers included Uber, Airbnb, Spotify. Technology licensed and acquired.</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- EDUCATION -->
+  <section>
+    <div class="container">
+      <p class="section-label">Education</p>
+      <div class="edu-list">
+        <div class="edu-item">
+          <div>
+            <div class="edu-inst">Stanford University</div>
+            <div class="edu-program">Design Thinking</div>
+          </div>
+          <span class="edu-year">2019</span>
+        </div>
+        <div class="edu-item">
+          <div>
+            <div class="edu-inst">UC San Diego</div>
+            <div class="edu-program">International Programs</div>
+          </div>
+          <span class="edu-year">2024</span>
+        </div>
+        <div class="edu-item">
+          <div>
+            <div class="edu-inst">Inter-American University</div>
+            <div class="edu-program">Business Administration</div>
+          </div>
+          <span class="edu-year">2024 &ndash; 2025</span>
+        </div>
+        <div class="edu-item">
+          <div>
+            <div class="edu-inst">FMU University</div>
+            <div class="edu-program">Law (J.D.)</div>
+          </div>
+          <span class="edu-year">2012 &ndash; 2016</span>
+        </div>
+        <div class="edu-item">
+          <div>
+            <div class="edu-inst">Y Combinator</div>
+            <div class="edu-program">Startup School</div>
+          </div>
+          <span class="edu-year">2024</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONNECT -->
+  <section>
+    <div class="container">
+      <p class="section-label">Connect</p>
+      <div class="connect-grid">
+        <div class="connect-item">
+          <span class="connect-key">Web</span>
+          <a class="connect-val" href="https://igoreduardo.com">igoreduardo.com</a>
+        </div>
+        <div class="connect-item">
+          <span class="connect-key">GitHub</span>
+          <a class="connect-val" href="https://github.com/nomad-link-id" target="_blank" rel="noopener">github.com/nomad-link-id</a>
+        </div>
+        <div class="connect-item">
+          <span class="connect-key">Medium</span>
+          <a class="connect-val" href="https://medium.com/@igorcnnbd" target="_blank" rel="noopener">medium.com/@igorcnnbd</a>
+        </div>
+        <div class="connect-item">
+          <span class="connect-key">ORCID</span>
+          <a class="connect-val" href="https://orcid.org/0009-0005-6288-1135" target="_blank" rel="noopener">0009-0005-6288-1135</a>
+        </div>
+        <div class="connect-item">
+          <span class="connect-key">DOI</span>
+          <a class="connect-val" href="https://doi.org/10.5281/zenodo.19686739" target="_blank" rel="noopener">10.5281/zenodo.19686739</a>
+        </div>
+        <div class="connect-item">
+          <span class="connect-key">LinkedIn</span>
+          <a class="connect-val" href="https://linkedin.com/in/igoreduardo" target="_blank" rel="noopener">linkedin.com/in/igoreduardo</a>
+        </div>
+      </div>
+    </div>
+  </section>
 
 </body>
 </html>
