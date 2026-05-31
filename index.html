@@ -16,11 +16,11 @@
       --bg: #FAFAFA;
       --bg2: #F5F4F1;
       --bg3: #EDECEA;
-      --ink: #1A1A1A;
-      --ink2: #3A3A3A;
-      --ink3: #6B6B6B;
-      --ink4: #9A9A9A;
-      --ink5: #C8C8C8;
+      --ink: #0D0D0D;
+      --ink2: #1A1A1A;
+      --ink3: #404040;
+      --ink4: #666666;
+      --ink5: #B8B8B8;
       --accent: #1B3A5C;
       --accent2: #264D73;
       --accent-light: #E8EFF5;
@@ -32,7 +32,7 @@
 
     body {
       font-family: 'Source Sans 3', sans-serif;
-      font-size: .95rem;
+      font-size: 1.05rem;
       color: var(--ink2);
       line-height: 1.75;
       -webkit-font-smoothing: antialiased;
@@ -56,7 +56,7 @@
     /* SECTION LABEL */
     .sec-label {
       font-family: 'Space Mono', monospace;
-      font-size: .65rem;
+      font-size: .72rem;
       letter-spacing: .15em;
       text-transform: uppercase;
       color: var(--warm);
@@ -115,10 +115,10 @@
       font-weight: 500; color: var(--ink); line-height: 1.5;
       margin-bottom: .5rem; max-width: 680px;
     }
-    .paper-meta { font-family: 'Space Mono', monospace; font-size: .62rem; color: var(--ink4); letter-spacing: .04em; margin-bottom: .4rem; }
-    .paper-finding { font-size: .85rem; color: var(--ink3); font-style: italic; margin-bottom: .5rem; max-width: 640px; }
+    .paper-meta { font-family: 'Space Mono', monospace; font-size: .7rem; color: var(--ink4); letter-spacing: .04em; margin-bottom: .4rem; }
+    .paper-finding { font-size: .9rem; color: var(--ink3); font-style: italic; margin-bottom: .5rem; max-width: 640px; }
     .paper-doi {
-      font-family: 'Space Mono', monospace; font-size: .62rem; color: var(--accent);
+      font-family: 'Space Mono', monospace; font-size: .7rem; color: var(--accent);
       text-decoration: none; display: inline-block; margin-right: 1.25rem;
       margin-top: .2rem; transition: color .2s;
     }
@@ -164,26 +164,26 @@
       transition: background .2s;
     }
     .repo-item:hover { background: var(--bg3); }
-    .repo-name { font-family: 'Space Mono', monospace; font-size: .75rem; font-weight: 700; color: var(--accent); margin-bottom: .3rem; }
-    .repo-desc { font-size: .85rem; color: var(--ink2); line-height: 1.5; }
-    .repo-tests { font-family: 'Space Mono', monospace; font-size: .6rem; color: var(--ink4); margin-top: .2rem; }
-    .repo-link { font-family: 'Space Mono', monospace; font-size: .6rem; color: var(--ink4); text-decoration: none; white-space: nowrap; padding-top: 2px; transition: color .2s; }
+    .repo-name { font-family: 'Space Mono', monospace; font-size: .82rem; font-weight: 700; color: var(--accent); margin-bottom: .3rem; }
+    .repo-desc { font-size: .92rem; color: var(--ink2); line-height: 1.5; }
+    .repo-tests { font-family: 'Space Mono', monospace; font-size: .68rem; color: var(--ink4); margin-top: .2rem; }
+    .repo-link { font-family: 'Space Mono', monospace; font-size: .68rem; color: var(--ink4); text-decoration: none; white-space: nowrap; padding-top: 2px; transition: color .2s; }
     .repo-link:hover { color: var(--accent); }
 
     /* ARTICLES */
     .article-list { margin-top: 1.5rem; }
     .article-item { display: flex; align-items: baseline; gap: 1rem; padding: .85rem 0; border-bottom: 1px solid rgba(0,0,0,.05); }
     .article-item:last-child { border-bottom: none; }
-    .article-num { font-family: 'Space Mono', monospace; font-size: .6rem; color: var(--ink4); min-width: 20px; flex-shrink: 0; }
-    .article-title { font-size: .9rem; color: var(--ink2); text-decoration: none; line-height: 1.5; transition: color .2s; }
+    .article-num { font-family: 'Space Mono', monospace; font-size: .68rem; color: var(--ink4); min-width: 20px; flex-shrink: 0; }
+    .article-title { font-size: 1rem; color: var(--ink2); text-decoration: none; line-height: 1.5; transition: color .2s; }
     .article-title:hover { color: var(--accent); }
 
     /* STACK */
     .stack-grid { display: flex; flex-direction: column; gap: 0; margin-top: 1.5rem; }
     .stack-row { display: flex; gap: 1rem; align-items: baseline; padding: .65rem 0; border-bottom: 1px solid rgba(0,0,0,.04); }
     .stack-row:last-child { border-bottom: none; }
-    .stack-label { font-family: 'Space Mono', monospace; font-size: .6rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--ink4); min-width: 100px; flex-shrink: 0; }
-    .stack-value { font-size: .9rem; color: var(--ink2); }
+    .stack-label { font-family: 'Space Mono', monospace; font-size: .68rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--ink4); min-width: 100px; flex-shrink: 0; }
+    .stack-value { font-size: 1rem; color: var(--ink2); }
 
     /* EXPERIENCE — funnel */
     .funnel { position: relative; padding-left: 3rem; margin-top: 1.5rem; }
@@ -215,8 +215,8 @@
     /* CONNECT */
     .connect-grid { display: flex; flex-direction: column; gap: .65rem; margin-top: 1.5rem; }
     .connect-item { display: flex; align-items: baseline; gap: 1rem; }
-    .connect-key { font-family: 'Space Mono', monospace; font-size: .6rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--ink4); min-width: 90px; flex-shrink: 0; }
-    .connect-val { font-family: 'Space Mono', monospace; font-size: .75rem; color: var(--ink2); text-decoration: none; transition: color .2s; }
+    .connect-key { font-family: 'Space Mono', monospace; font-size: .68rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--ink4); min-width: 90px; flex-shrink: 0; }
+    .connect-val { font-family: 'Space Mono', monospace; font-size: .82rem; color: var(--ink2); text-decoration: none; transition: color .2s; }
     .connect-val:hover { color: var(--accent); }
 
     /* SCROLL REVEAL */
