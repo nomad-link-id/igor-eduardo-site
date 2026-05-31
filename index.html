@@ -3,706 +3,420 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Igor Eduardo — Researcher & Engineer</title>
+  <title>Igor Eduardo &mdash; Researcher &amp; Engineer</title>
   <meta name="description" content="Researcher and engineer building AI systems for regulated industries. Published AI researcher. Austin, TX." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Source+Sans+3:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
   <style>
-    *, *::before, *::after {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --bg: #08090a;
-      --surface: #0f1114;
-      --surface2: #161a1f;
-      --border: #1e2228;
-      --text: #f0f0f0;
-      --secondary: #6b7280;
-      --accent: #c5a55a;
-      --accent-hover: #d4b76a;
-      --highlight: #1a1510;
+      --white: #FFFFFF;
+      --bg: #FAFAFA;
+      --bg2: #F5F4F1;
+      --bg3: #EDECEA;
+      --ink: #1A1A1A;
+      --ink2: #3A3A3A;
+      --ink3: #6B6B6B;
+      --ink4: #9A9A9A;
+      --ink5: #C8C8C8;
+      --accent: #1B3A5C;
+      --accent2: #264D73;
+      --accent-light: #E8EFF5;
+      --warm: #B8956A;
+      --warm-light: #F8F3ED;
     }
 
-    html {
-      font-size: 16px;
-      scroll-behavior: smooth;
-    }
+    html { font-size: 16px; scroll-behavior: smooth; }
 
     body {
-      background-color: var(--bg);
-      color: var(--text);
-      font-family: system-ui, -apple-system, sans-serif;
-      font-weight: 400;
-      line-height: 1.65;
+      font-family: 'Source Sans 3', sans-serif;
+      font-size: .95rem;
+      color: var(--ink2);
+      line-height: 1.75;
       -webkit-font-smoothing: antialiased;
+      background: var(--bg);
     }
 
-    .container {
-      max-width: 800px;
-      margin: 0 auto;
-      padding: 0 24px;
+    h1 { font-family: 'Playfair Display', serif; font-size: clamp(2.2rem, 4.5vw, 3.2rem); font-weight: 400; line-height: 1.12; letter-spacing: -.015em; color: var(--ink); }
+    h2 { font-family: 'Playfair Display', serif; font-size: clamp(1.5rem, 2.5vw, 1.9rem); font-weight: 400; line-height: 1.22; color: var(--ink); }
+    p { color: var(--ink2); font-size: .95rem; font-weight: 400; max-width: 640px; }
+    strong { color: var(--ink); font-weight: 600; }
+
+    /* LAYOUT */
+    .sec { padding: 5.5rem 0; }
+    .sec-alt { background: var(--bg2); }
+    .wrap { max-width: 780px; margin: 0 auto; padding: 0 1.5rem; }
+    .wrap-w { max-width: 960px; margin: 0 auto; padding: 0 1.5rem; }
+
+    /* ACCENT BAR */
+    .bar { width: 36px; height: 2px; background: var(--warm); margin-bottom: 1.25rem; }
+
+    /* SECTION LABEL */
+    .sec-label {
+      font-family: 'Space Mono', monospace;
+      font-size: .65rem;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+      color: var(--warm);
+      margin-bottom: 2rem;
+      display: block;
     }
+
+    /* NAV */
+    .nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      height: 50px; display: flex; align-items: center;
+      justify-content: space-between; padding: 0 2.5rem;
+      background: rgba(255,255,255,.92);
+      backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(0,0,0,.05);
+      transform: translateY(-100%); transition: transform .35s;
+    }
+    .nav.show { transform: translateY(0); }
+    .nav-brand { font-family: 'Playfair Display', serif; font-size: .95rem; color: var(--accent); font-weight: 500; }
+    .nav-links { display: flex; gap: 2rem; }
+    .nav-links a { font-size: .65rem; color: var(--ink4); text-decoration: none; letter-spacing: .08em; text-transform: uppercase; font-weight: 500; transition: color .2s; }
+    .nav-links a:hover { color: var(--accent); }
 
     /* HERO */
-    .hero {
-      padding: 80px 0 64px;
-      border-bottom: 1px solid var(--border);
+    .hero { min-height: 100vh; display: flex; align-items: center; background: var(--white); border-bottom: 1px solid var(--ink5); }
+    .hero-eyebrow {
+      font-family: 'Space Mono', monospace; font-size: .65rem;
+      letter-spacing: .2em; text-transform: uppercase; color: var(--warm);
+      margin-bottom: 2rem; opacity: 0; animation: up .6s ease .3s forwards;
     }
-
-    .hero-name {
-      font-size: clamp(2rem, 5vw, 3rem);
-      font-weight: 700;
-      letter-spacing: -0.02em;
-      line-height: 1.1;
-      font-family: Georgia, serif;
-      color: var(--text);
-      margin-bottom: 12px;
+    .hero h1 { opacity: 0; animation: up .6s ease .45s forwards; }
+    .hero h1 em { font-style: italic; color: var(--accent); }
+    .hero-sub {
+      margin-top: 1.5rem; font-size: 1.02rem; max-width: 560px;
+      color: var(--ink3); font-weight: 300; line-height: 1.8;
+      opacity: 0; animation: up .6s ease .6s forwards;
     }
-
-    .hero-subtitle {
-      font-size: clamp(1rem, 2.5vw, 1.25rem);
-      font-weight: 400;
-      color: var(--accent);
-      margin-bottom: 8px;
-      font-family: 'SF Mono', 'Menlo', monospace;
+    .hero-rule { width: 48px; height: 2px; background: var(--warm); margin-top: 2.5rem; opacity: 0; animation: up .6s ease .75s forwards; }
+    .hero-links {
+      display: flex; flex-wrap: wrap; gap: 0; margin-top: 2rem;
+      opacity: 0; animation: up .6s ease .9s forwards;
     }
-
-    .hero-line {
-      font-size: 0.9rem;
-      color: var(--secondary);
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
-      margin-bottom: 28px;
+    .hero-links a {
+      font-family: 'Space Mono', monospace; font-size: .6rem;
+      letter-spacing: .08em; text-transform: uppercase;
+      color: var(--ink4); text-decoration: none; transition: color .2s;
     }
-
-    .hero-bio {
-      font-size: 1rem;
-      color: var(--text);
-      line-height: 1.7;
-      max-width: 640px;
-      margin-bottom: 32px;
-    }
-
-    .links-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 4px 0;
-    }
-
-    .links-row a {
-      color: var(--secondary);
-      text-decoration: none;
-      font-size: 0.875rem;
-      font-weight: 500;
-      letter-spacing: 0.02em;
-      transition: color 0.15s ease;
-      padding: 4px 0;
-    }
-
-    .links-row a:hover {
-      color: var(--accent-hover);
-    }
-
-    .links-row span {
-      color: var(--border);
-      padding: 4px 12px;
-      font-size: 0.75rem;
-    }
-
-    /* SECTIONS */
-    section {
-      padding: 56px 0;
-      border-bottom: 1px solid var(--border);
-    }
-
-    section:last-child {
-      border-bottom: none;
-    }
-
-    .section-label {
-      font-size: 0.7rem;
-      font-weight: 700;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--secondary);
-      margin-bottom: 32px;
-    }
+    .hero-links a:hover { color: var(--accent); }
+    .hero-links .sep { color: var(--ink5); padding: 0 10px; font-size: .6rem; }
 
     /* RESEARCH */
-    .research-title {
-      font-size: 1rem;
-      font-weight: 500;
-      color: var(--text);
-      line-height: 1.6;
-      margin-bottom: 8px;
+    .paper { margin-bottom: 2.5rem; padding-bottom: 2.5rem; border-bottom: 1px solid var(--ink5); }
+    .paper:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+    .paper-title {
+      font-family: 'Playfair Display', serif; font-size: 1.05rem;
+      font-weight: 500; color: var(--ink); line-height: 1.5;
+      margin-bottom: .5rem; max-width: 680px;
     }
+    .paper-meta { font-family: 'Space Mono', monospace; font-size: .62rem; color: var(--ink4); letter-spacing: .04em; margin-bottom: .4rem; }
+    .paper-finding { font-size: .85rem; color: var(--ink3); font-style: italic; margin-bottom: .5rem; max-width: 640px; }
+    .paper-doi {
+      font-family: 'Space Mono', monospace; font-size: .62rem; color: var(--accent);
+      text-decoration: none; display: inline-block; margin-right: 1.25rem;
+      margin-top: .2rem; transition: color .2s;
+    }
+    .paper-doi:hover { color: var(--accent2); text-decoration: underline; }
 
-    .research-meta {
-      font-size: 0.8rem;
-      color: var(--secondary);
-      margin-bottom: 4px;
+    /* DATA CARDS */
+    .d-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(155px, 1fr)); gap: .85rem; margin: 1.5rem 0; }
+    .d-card {
+      background: var(--white); border: 1px solid rgba(0,0,0,.06);
+      border-radius: 6px; padding: 1.1rem; text-align: center;
+      transition: all .25s; box-shadow: 0 1px 3px rgba(0,0,0,.03);
     }
+    .d-card:hover { transform: translateY(-1px); box-shadow: 0 4px 14px rgba(0,0,0,.05); }
+    .d-num { font-family: 'Playfair Display', serif; font-size: 1.8rem; font-weight: 500; color: var(--accent); line-height: 1; margin-bottom: .2rem; }
+    .d-label { font-size: .74rem; color: var(--ink3); line-height: 1.3; }
 
-    .research-doi {
-      font-family: 'SF Mono', 'Menlo', monospace;
-      font-size: 0.75rem;
-      color: var(--accent);
-      text-decoration: none;
-      display: inline-block;
-      margin-bottom: 32px;
-    }
-
-    .research-doi:hover {
-      text-decoration: underline;
-    }
-
-    .findings-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 20px;
-    }
-
-    .finding {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-left: 2px solid var(--accent);
-      padding: 16px 20px;
-    }
-
-    .finding-metric {
-      font-family: 'SF Mono', 'Menlo', monospace;
-      font-size: 0.9rem;
-      font-weight: 500;
-      color: var(--accent);
-      margin-bottom: 6px;
-    }
-
-    .finding-desc {
-      font-size: 0.8rem;
-      color: var(--secondary);
-      line-height: 1.5;
-    }
+    /* MODULES */
+    .modules-line { font-size: .85rem; color: var(--ink3); line-height: 1.8; margin-top: 1.5rem; }
+    .modules-line strong { color: var(--ink); font-weight: 600; }
 
     /* HACKATHONS */
-    .hackathon-item {
-      background: var(--highlight);
-      border: 1px solid var(--border);
-      border-left: 2px solid var(--accent);
-      padding: 24px 28px;
-      margin-bottom: 1px;
+    .hack-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1rem; margin-top: 1.5rem; }
+    .hack-card {
+      background: var(--white); border: 1px solid rgba(0,0,0,.06);
+      border-left: 3px solid var(--warm); border-radius: 0 6px 6px 0;
+      padding: 1.5rem; transition: all .25s;
     }
+    .hack-card:hover { box-shadow: 0 4px 14px rgba(0,0,0,.05); }
+    .hack-label { font-family: 'Space Mono', monospace; font-size: .58rem; letter-spacing: .1em; text-transform: uppercase; color: var(--warm); margin-bottom: .5rem; }
+    .hack-title { font-family: 'Playfair Display', serif; font-size: 1.1rem; font-weight: 500; color: var(--ink); margin-bottom: .3rem; line-height: 1.3; }
+    .hack-subtitle { font-family: 'Space Mono', monospace; font-size: .6rem; color: var(--accent); margin-bottom: .85rem; letter-spacing: .04em; }
+    .hack-detail { font-size: .85rem; color: var(--ink3); line-height: 1.65; margin-bottom: 1rem; }
+    .hack-links { display: flex; gap: 1.25rem; flex-wrap: wrap; }
+    .hack-link { font-family: 'Space Mono', monospace; font-size: .62rem; color: var(--accent); text-decoration: none; transition: color .2s; }
+    .hack-link:hover { color: var(--accent2); text-decoration: underline; }
 
-    .hackathon-title {
-      font-size: 1rem;
-      font-weight: 700;
-      color: var(--text);
-      margin-bottom: 4px;
-    }
-
-    .hackathon-subtitle {
-      font-size: 0.8rem;
-      color: var(--accent);
-      margin-bottom: 12px;
-      font-family: 'SF Mono', 'Menlo', monospace;
-    }
-
-    .hackathon-detail {
-      font-size: 0.85rem;
-      color: var(--secondary);
-      line-height: 1.6;
-      margin-bottom: 14px;
-    }
-
-    .hackathon-links {
-      display: flex;
-      gap: 20px;
-      flex-wrap: wrap;
-    }
-
-    .hackathon-link {
-      font-size: 0.75rem;
-      color: var(--accent);
-      text-decoration: none;
-      font-family: 'SF Mono', 'Menlo', monospace;
-    }
-
-    .hackathon-link:hover {
-      color: var(--accent-hover);
-      text-decoration: underline;
-    }
-
-    /* WHAT I BUILT */
-    .stats-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 16px;
-      margin-bottom: 28px;
-    }
-
-    .stat-item {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      padding: 16px 20px;
-    }
-
-    .stat-value {
-      font-family: 'SF Mono', 'Menlo', monospace;
-      font-size: 1rem;
-      font-weight: 500;
-      color: var(--text);
-      margin-bottom: 4px;
-    }
-
-    .stat-label {
-      font-size: 0.75rem;
-      color: var(--secondary);
-    }
-
-    .modules-line {
-      font-size: 0.8rem;
-      color: var(--secondary);
-      line-height: 1.7;
-    }
-
-    .modules-line strong {
-      color: var(--text);
-      font-weight: 500;
-    }
-
-    /* OPEN SOURCE */
-    .repo-list {
-      display: flex;
-      flex-direction: column;
-      gap: 1px;
-    }
-
+    /* REPOS */
+    .repo-list { display: flex; flex-direction: column; gap: 1px; margin-top: 1.5rem; }
     .repo-item {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      padding: 20px 24px;
-      display: grid;
-      grid-template-columns: 1fr auto;
-      align-items: start;
-      gap: 16px;
+      background: var(--white); border: 1px solid rgba(0,0,0,.06);
+      padding: 1rem 1.25rem; display: grid;
+      grid-template-columns: 1fr auto; align-items: start; gap: 1rem;
+      transition: background .2s;
     }
-
-    .repo-item:hover {
-      background: var(--surface2);
-      border-color: var(--border);
-    }
-
-    .repo-name {
-      font-family: 'SF Mono', 'Menlo', monospace;
-      font-size: 0.85rem;
-      font-weight: 500;
-      color: var(--accent);
-      margin-bottom: 6px;
-    }
-
-    .repo-desc {
-      font-size: 0.85rem;
-      color: var(--text);
-      margin-bottom: 6px;
-      line-height: 1.5;
-    }
-
-    .repo-tests {
-      font-size: 0.75rem;
-      color: var(--secondary);
-      font-family: 'SF Mono', 'Menlo', monospace;
-    }
-
-    .repo-link {
-      font-size: 0.75rem;
-      color: var(--secondary);
-      text-decoration: none;
-      white-space: nowrap;
-      font-family: 'SF Mono', 'Menlo', monospace;
-      padding-top: 2px;
-    }
-
-    .repo-link:hover {
-      color: var(--accent-hover);
-    }
+    .repo-item:hover { background: var(--bg3); }
+    .repo-name { font-family: 'Space Mono', monospace; font-size: .75rem; font-weight: 700; color: var(--accent); margin-bottom: .3rem; }
+    .repo-desc { font-size: .85rem; color: var(--ink2); line-height: 1.5; }
+    .repo-tests { font-family: 'Space Mono', monospace; font-size: .6rem; color: var(--ink4); margin-top: .2rem; }
+    .repo-link { font-family: 'Space Mono', monospace; font-size: .6rem; color: var(--ink4); text-decoration: none; white-space: nowrap; padding-top: 2px; transition: color .2s; }
+    .repo-link:hover { color: var(--accent); }
 
     /* ARTICLES */
-    .article-list {
-      display: flex;
-      flex-direction: column;
-      gap: 1px;
-    }
-
-    .article-item {
-      display: flex;
-      align-items: baseline;
-      gap: 16px;
-      padding: 12px 0;
-      border-bottom: 1px solid var(--border);
-    }
-
-    .article-item:last-child {
-      border-bottom: none;
-    }
-
-    .article-num {
-      font-family: 'SF Mono', 'Menlo', monospace;
-      font-size: 0.7rem;
-      color: var(--secondary);
-      min-width: 20px;
-      flex-shrink: 0;
-    }
-
-    .article-title {
-      font-size: 0.9rem;
-      color: var(--text);
-      text-decoration: none;
-      line-height: 1.5;
-      transition: color 0.15s ease;
-    }
-
-    .article-title:hover {
-      color: var(--accent-hover);
-    }
+    .article-list { margin-top: 1.5rem; }
+    .article-item { display: flex; align-items: baseline; gap: 1rem; padding: .85rem 0; border-bottom: 1px solid rgba(0,0,0,.05); }
+    .article-item:last-child { border-bottom: none; }
+    .article-num { font-family: 'Space Mono', monospace; font-size: .6rem; color: var(--ink4); min-width: 20px; flex-shrink: 0; }
+    .article-title { font-size: .9rem; color: var(--ink2); text-decoration: none; line-height: 1.5; transition: color .2s; }
+    .article-title:hover { color: var(--accent); }
 
     /* STACK */
-    .stack-grid {
-      display: flex;
-      flex-direction: column;
-      gap: 14px;
-    }
+    .stack-grid { display: flex; flex-direction: column; gap: 0; margin-top: 1.5rem; }
+    .stack-row { display: flex; gap: 1rem; align-items: baseline; padding: .65rem 0; border-bottom: 1px solid rgba(0,0,0,.04); }
+    .stack-row:last-child { border-bottom: none; }
+    .stack-label { font-family: 'Space Mono', monospace; font-size: .6rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--ink4); min-width: 100px; flex-shrink: 0; }
+    .stack-value { font-size: .9rem; color: var(--ink2); }
 
-    .stack-row {
-      display: flex;
-      gap: 16px;
-      align-items: baseline;
+    /* EXPERIENCE — funnel */
+    .funnel { position: relative; padding-left: 3rem; margin-top: 1.5rem; }
+    .funnel::before {
+      content: ''; position: absolute; left: .75rem; top: 0; bottom: 0;
+      width: 1.5px;
+      background: linear-gradient(to bottom, var(--accent), rgba(27,58,92,.15), transparent);
     }
-
-    .stack-label {
-      font-size: 0.7rem;
-      font-weight: 700;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--secondary);
-      min-width: 100px;
-      flex-shrink: 0;
+    .f-step { position: relative; margin-bottom: 2.5rem; }
+    .f-step:last-child { margin-bottom: 0; }
+    .f-dot {
+      position: absolute; left: -2.55rem; top: .3rem;
+      width: 10px; height: 10px; border-radius: 50%;
+      background: var(--white); border: 2px solid var(--accent); transition: all .3s;
     }
-
-    .stack-value {
-      font-size: 0.875rem;
-      color: var(--text);
-      line-height: 1.6;
-    }
-
-    /* EXPERIENCE */
-    .exp-list {
-      display: flex;
-      flex-direction: column;
-      gap: 32px;
-    }
-
-    .exp-item {
-      display: grid;
-      grid-template-columns: 140px 1fr;
-      gap: 24px;
-    }
-
-    .exp-period {
-      font-family: 'SF Mono', 'Menlo', monospace;
-      font-size: 0.75rem;
-      color: var(--secondary);
-      padding-top: 2px;
-      line-height: 1.5;
-    }
-
-    .exp-role {
-      font-size: 0.95rem;
-      font-weight: 700;
-      color: var(--text);
-      margin-bottom: 4px;
-    }
-
-    .exp-org {
-      font-size: 0.85rem;
-      color: var(--accent);
-      margin-bottom: 8px;
-    }
-
-    .exp-desc {
-      font-size: 0.85rem;
-      color: var(--secondary);
-      line-height: 1.6;
-    }
+    .f-period { font-family: 'Space Mono', monospace; font-size: .6rem; color: var(--ink4); margin-bottom: .3rem; }
+    .f-role { font-size: .95rem; font-weight: 600; color: var(--ink); margin-bottom: .2rem; }
+    .f-org { font-size: .85rem; color: var(--warm); margin-bottom: .45rem; font-style: italic; }
+    .f-desc { font-size: .85rem; color: var(--ink3); line-height: 1.65; max-width: 560px; }
 
     /* EDUCATION */
-    .edu-list {
-      display: flex;
-      flex-direction: column;
-      gap: 1px;
-    }
-
-    .edu-item {
-      display: flex;
-      justify-content: space-between;
-      align-items: baseline;
-      padding: 12px 0;
-      border-bottom: 1px solid var(--border);
-      gap: 16px;
-    }
-
-    .edu-item:last-child {
-      border-bottom: none;
-    }
-
-    .edu-inst {
-      font-size: 0.875rem;
-      font-weight: 500;
-      color: var(--text);
-    }
-
-    .edu-program {
-      font-size: 0.8rem;
-      color: var(--secondary);
-      margin-top: 2px;
-    }
-
-    .edu-year {
-      font-family: 'SF Mono', 'Menlo', monospace;
-      font-size: 0.75rem;
-      color: var(--secondary);
-      white-space: nowrap;
-      flex-shrink: 0;
-    }
+    .edu-list { margin-top: 1.5rem; }
+    .edu-item { display: flex; justify-content: space-between; align-items: baseline; padding: .85rem 0; border-bottom: 1px solid rgba(0,0,0,.05); gap: 1rem; }
+    .edu-item:last-child { border-bottom: none; }
+    .edu-inst { font-size: .9rem; font-weight: 600; color: var(--ink); }
+    .edu-program { font-size: .8rem; color: var(--ink4); margin-top: .1rem; }
+    .edu-year { font-family: 'Space Mono', monospace; font-size: .62rem; color: var(--ink4); white-space: nowrap; flex-shrink: 0; }
 
     /* CONNECT */
-    .connect-grid {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
+    .connect-grid { display: flex; flex-direction: column; gap: .65rem; margin-top: 1.5rem; }
+    .connect-item { display: flex; align-items: baseline; gap: 1rem; }
+    .connect-key { font-family: 'Space Mono', monospace; font-size: .6rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--ink4); min-width: 90px; flex-shrink: 0; }
+    .connect-val { font-family: 'Space Mono', monospace; font-size: .75rem; color: var(--ink2); text-decoration: none; transition: color .2s; }
+    .connect-val:hover { color: var(--accent); }
 
-    .connect-item {
-      display: flex;
-      align-items: baseline;
-      gap: 16px;
-    }
+    /* SCROLL REVEAL */
+    .rv { opacity: 0; transform: translateY(18px); transition: opacity .55s ease, transform .55s ease; }
+    .rv.vis { opacity: 1; transform: translateY(0); }
 
-    .connect-key {
-      font-size: 0.7rem;
-      font-weight: 700;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--secondary);
-      min-width: 80px;
-      flex-shrink: 0;
-    }
-
-    .connect-val {
-      font-family: 'SF Mono', 'Menlo', monospace;
-      font-size: 0.8rem;
-      color: var(--text);
-      text-decoration: none;
-    }
-
-    .connect-val:hover {
-      color: var(--accent-hover);
-    }
-
-    a.connect-val {
-      transition: color 0.15s ease;
-    }
+    @keyframes up { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
 
     /* RESPONSIVE */
+    @media (max-width: 768px) {
+      .nav { padding: 0 1.25rem; }
+      .nav-links { display: none; }
+    }
     @media (max-width: 600px) {
-      .hero {
-        padding: 48px 0 40px;
-      }
-
-      section {
-        padding: 40px 0;
-      }
-
-      .exp-item {
-        grid-template-columns: 1fr;
-        gap: 6px;
-      }
-
-      .exp-period {
-        font-size: 0.7rem;
-      }
-
-      .repo-item {
-        grid-template-columns: 1fr;
-      }
-
-      .repo-link {
-        display: none;
-      }
-
-      .repo-name {
-        text-decoration: underline;
-      }
-
-      .stack-row {
-        flex-direction: column;
-        gap: 4px;
-      }
-
-      .stack-label {
-        min-width: unset;
-      }
-
-      .edu-item {
-        flex-direction: column;
-        gap: 4px;
-      }
-
-      .links-row span {
-        padding: 4px 8px;
-      }
+      .sec { padding: 3.5rem 0; }
+      .wrap, .wrap-w { padding: 0 1.25rem; }
+      .d-row { grid-template-columns: repeat(2, 1fr); }
+      .hack-grid { grid-template-columns: 1fr; }
+      .repo-item { grid-template-columns: 1fr; }
+      .repo-link { display: none; }
+      .stack-row { flex-direction: column; gap: .2rem; }
+      .stack-label { min-width: unset; }
+      .edu-item { flex-direction: column; gap: .2rem; }
+      .funnel { padding-left: 2rem; }
+      .f-dot { left: -1.55rem; }
     }
   </style>
 </head>
 <body>
 
+  <!-- NAV -->
+  <nav class="nav" id="nav">
+    <span class="nav-brand">Igor Eduardo</span>
+    <div class="nav-links">
+      <a href="#research">Research</a>
+      <a href="#built">Built</a>
+      <a href="#hackathons">Hackathons</a>
+      <a href="#oss">Open Source</a>
+      <a href="#experience">Experience</a>
+      <a href="#connect">Connect</a>
+    </div>
+  </nav>
+
   <!-- HERO -->
   <div class="hero">
-    <div class="container">
-      <h1 class="hero-name">IGOR EDUARDO</h1>
-      <p class="hero-line">Researcher &amp; Engineer &mdash; Austin, TX</p>
-      <p class="hero-bio">Researcher and engineer building AI systems for regulated industries. Solo-built 49,447-line clinical AI infrastructure with 78 API routes and 16 modules. Published 8 peer-reviewed manuscripts across pharmacovigilance, epidemiology, and clinical NLP. Previously founded and exited a technology company (acquired), then evaluated 46 companies across 7 years in venture capital. Fluent in English, Portuguese, and Spanish.</p>
-      <nav class="links-row">
+    <div class="wrap">
+      <div class="hero-eyebrow">Researcher &amp; Engineer &mdash; Austin, TX</div>
+      <h1>Igor <em>Eduardo</em></h1>
+      <p class="hero-sub">Building AI systems for regulated industries. Published researcher across pharmacovigilance, epidemiology, and clinical NLP. Previously founded and exited a technology company, then evaluated 46 companies across 7 years in venture capital. Fluent in English, Portuguese, and Spanish.</p>
+      <div class="hero-rule"></div>
+      <div class="hero-links">
         <a href="https://github.com/nomad-link-id" target="_blank" rel="noopener">GitHub</a>
-        <span>|</span>
+        <span class="sep">|</span>
         <a href="https://medium.com/@nomad-link-id" target="_blank" rel="noopener">Medium</a>
-        <span>|</span>
+        <span class="sep">|</span>
         <a href="https://orcid.org/0009-0005-6288-1135" target="_blank" rel="noopener">ORCID</a>
-        <span>|</span>
+        <span class="sep">|</span>
         <a href="https://linkedin.com/in/igor-eduardo-00z" target="_blank" rel="noopener">LinkedIn</a>
-        <span>|</span>
+        <span class="sep">|</span>
         <a href="https://huggingface.co/datasets/Nomad-link-id/glp1-faers-2004-2024" target="_blank" rel="noopener">HuggingFace</a>
-      </nav>
+      </div>
     </div>
   </div>
 
   <!-- PUBLISHED RESEARCH -->
-  <section>
-    <div class="container">
-      <p class="section-label">Published Research</p>
+  <section class="sec sec-alt" id="research">
+    <div class="wrap">
+      <div class="bar rv"></div>
+      <span class="sec-label rv">Published Research</span>
 
-      <p class="research-title">Global Health Data Interoperability Across Low- and Middle-Income Countries</p>
-      <p class="research-meta">Nature &mdash; In Progress</p>
-      <p class="research-meta" style="margin-bottom: 32px;">Cross-national harmonization of administrative health data across three countries</p>
+      <div class="paper rv">
+        <p class="paper-title">Global Health Data Interoperability Across Low- and Middle-Income Countries</p>
+        <p class="paper-meta">Nature &mdash; In Progress</p>
+        <p class="paper-finding">Cross-national harmonization of administrative health data across three countries</p>
+      </div>
 
-      <p class="research-title">Comparative Post-Marketing Pharmacovigilance of Five GLP-1 Receptor Agonists: A Disproportionality Analysis of 412,643 FDA Adverse Event Reports (2004&ndash;2024)</p>
-      <p class="research-meta">Drug Safety &mdash; Under Review</p>
-      <p class="research-meta">PRR 88.9 &mdash; 6&ndash;44&times; above all prior published estimates</p>
-      <a class="research-doi" href="https://huggingface.co/datasets/Nomad-link-id/glp1-faers-2004-2024" target="_blank" rel="noopener">Dataset: HuggingFace &rarr;</a>
+      <div class="paper rv">
+        <p class="paper-title">Comparative Post-Marketing Pharmacovigilance of Five GLP-1 Receptor Agonists: A Disproportionality Analysis of 412,643 FDA Adverse Event Reports (2004&ndash;2024)</p>
+        <p class="paper-meta">Drug Safety &mdash; Under Review</p>
+        <p class="paper-finding">PRR 88.9 &mdash; 6&ndash;44&times; above all prior published estimates</p>
+        <a class="paper-doi" href="https://doi.org/10.21203/rs.3.rs-9818000/v1" target="_blank" rel="noopener">doi.org/10.21203/rs.3.rs-9818000/v1</a>
+        <a class="paper-doi" href="https://huggingface.co/datasets/Nomad-link-id/glp1-faers-2004-2024" target="_blank" rel="noopener">Dataset: HuggingFace &rarr;</a>
+      </div>
 
-      <p class="research-title">Class-Wide Impaired Gastric Emptying Signal Across Nine GLP-1 Receptor Agonist Agents: Indication-Stratified Pharmacovigilance Analysis of 6,868 Cases with Cross-National Validation</p>
-      <p class="research-meta">Research Square &mdash; Prescreening (DOI pending)</p>
-      <p class="research-meta" style="margin-bottom: 32px;">&nbsp;</p>
+      <div class="paper rv">
+        <p class="paper-title">Class-Wide Impaired Gastric Emptying Signal Across Nine GLP-1 Receptor Agonist Agents: Indication-Stratified Pharmacovigilance Analysis of 6,868 Cases in FDA FAERS (2004&ndash;2024) with Cross-National Validation</p>
+        <p class="paper-meta">Research Square &mdash; Posted</p>
+        <a class="paper-doi" href="https://doi.org/10.21203/rs.3.rs-9818062/v1" target="_blank" rel="noopener">doi.org/10.21203/rs.3.rs-9818062/v1</a>
+      </div>
 
-      <p class="research-title">Hidden in Plain Sight: National Benchmarks for Sepsis Mortality, Dengue Burden, and Antimicrobial Use from 35 Million Hospitalizations in Brazil's Universal Health System</p>
-      <p class="research-meta">BMJ Global Health &mdash; Under Review</p>
-      <a class="research-doi" href="https://doi.org/10.21203/rs.3.rs-9818082/v1" target="_blank" rel="noopener">doi.org/10.21203/rs.3.rs-9818082/v1</a>
+      <div class="paper rv">
+        <p class="paper-title">Hidden in Plain Sight: National Benchmarks for Sepsis Mortality, Dengue Burden, and Antimicrobial Use from 35 Million Hospitalizations in Brazil&rsquo;s Universal Health System</p>
+        <p class="paper-meta">BMJ Global Health &mdash; Under Review</p>
+        <a class="paper-doi" href="https://doi.org/10.21203/rs.3.rs-9818082/v1" target="_blank" rel="noopener">doi.org/10.21203/rs.3.rs-9818082/v1</a>
+      </div>
 
-      <p class="research-title">Record-Breaking Dengue Epidemic in Brazil, 2024: Nationwide Analysis of 10.5 Million Cases and DENV-3 Reemergence</p>
-      <p class="research-meta">PLoS Neglected Tropical Diseases &mdash; Under Review</p>
-      <a class="research-doi" href="https://doi.org/10.21203/rs.3.rs-9818084/v1" target="_blank" rel="noopener">doi.org/10.21203/rs.3.rs-9818084/v1</a>
+      <div class="paper rv">
+        <p class="paper-title">Record-Breaking Dengue Epidemic in Brazil, 2024: Nationwide Analysis of 10.5 Million Cases and DENV-3 Reemergence</p>
+        <p class="paper-meta">PLoS Neglected Tropical Diseases &mdash; Under Review</p>
+        <a class="paper-doi" href="https://doi.org/10.21203/rs.3.rs-9818084/v1" target="_blank" rel="noopener">doi.org/10.21203/rs.3.rs-9818084/v1</a>
+      </div>
 
-      <p class="research-title">Brazilian-PHI: Benchmarking Checksum-Validated Recognizers for CPF, CRM, CNS, CNPJ, RG, CEP, and Phone in Portuguese Clinical Text</p>
-      <p class="research-meta">Journal of Biomedical Informatics &mdash; Under Peer Review</p>
-      <a class="research-doi" href="https://doi.org/10.5281/zenodo.20076543" target="_blank" rel="noopener">doi.org/10.5281/zenodo.20076543</a>
+      <div class="paper rv">
+        <p class="paper-title">Brazilian-PHI: Benchmarking Checksum-Validated Recognizers for CPF, CRM, CNS, CNPJ, RG, CEP, and Phone in Portuguese Clinical Text</p>
+        <p class="paper-meta">Journal of Biomedical Informatics &mdash; Under Peer Review</p>
+        <a class="paper-doi" href="https://doi.org/10.5281/zenodo.20076543" target="_blank" rel="noopener">doi.org/10.5281/zenodo.20076543</a>
+      </div>
 
-      <p class="research-title">BM25 and Dense Retrieval Are Complementary for Portuguese Clinical Text: An Empirical Study of Hybrid RAG Across 500 Clinical Queries</p>
-      <p class="research-meta">Zenodo &mdash; Open Access (55 views, 38 downloads)</p>
-      <a class="research-doi" href="https://doi.org/10.5281/zenodo.19686739" target="_blank" rel="noopener">doi.org/10.5281/zenodo.19686739</a>
+      <div class="paper rv">
+        <p class="paper-title">BM25 and Dense Retrieval Are Complementary for Portuguese Clinical Text: An Empirical Study of Hybrid RAG Across 500 Clinical Queries</p>
+        <p class="paper-meta">Zenodo &mdash; Open Access (55 views, 38 downloads)</p>
+        <a class="paper-doi" href="https://doi.org/10.5281/zenodo.19686739" target="_blank" rel="noopener">doi.org/10.5281/zenodo.19686739</a>
+      </div>
 
     </div>
   </section>
 
   <!-- WHAT I BUILT -->
-  <section>
-    <div class="container">
-      <p class="section-label">What I Built</p>
-      <div class="stats-grid">
-        <div class="stat-item">
-          <div class="stat-value">49,447</div>
-          <div class="stat-label">lines of code</div>
+  <section class="sec" id="built">
+    <div class="wrap-w">
+      <div class="wrap">
+        <div class="bar rv"></div>
+        <span class="sec-label rv">What I Built</span>
+      </div>
+      <div class="d-row rv">
+        <div class="d-card">
+          <div class="d-num">49,447</div>
+          <div class="d-label">lines of code</div>
         </div>
-        <div class="stat-item">
-          <div class="stat-value">78</div>
-          <div class="stat-label">API routes</div>
+        <div class="d-card">
+          <div class="d-num">78</div>
+          <div class="d-label">API routes</div>
         </div>
-        <div class="stat-item">
-          <div class="stat-value">8</div>
-          <div class="stat-label">published manuscripts</div>
+        <div class="d-card">
+          <div class="d-num">8</div>
+          <div class="d-label">published manuscripts</div>
         </div>
-        <div class="stat-item">
-          <div class="stat-value">16</div>
-          <div class="stat-label">AI modules</div>
+        <div class="d-card">
+          <div class="d-num">16</div>
+          <div class="d-label">AI modules</div>
         </div>
-        <div class="stat-item">
-          <div class="stat-value">2</div>
-          <div class="stat-label">hackathons won (May 2026)</div>
+        <div class="d-card">
+          <div class="d-num">2</div>
+          <div class="d-label">hackathons won (May 2026)</div>
         </div>
-        <div class="stat-item">
-          <div class="stat-value">1</div>
-          <div class="stat-label">patent pending</div>
+        <div class="d-card">
+          <div class="d-num">1</div>
+          <div class="d-label">patent pending</div>
         </div>
-        <div class="stat-item">
-          <div class="stat-value">3</div>
-          <div class="stat-label">countries (cross-national)</div>
+        <div class="d-card">
+          <div class="d-num">3</div>
+          <div class="d-label">countries (cross-national)</div>
         </div>
-        <div class="stat-item">
-          <div class="stat-value">5-layer</div>
-          <div class="stat-label">safety architecture</div>
+        <div class="d-card">
+          <div class="d-num">5</div>
+          <div class="d-label">safety architecture layers</div>
         </div>
       </div>
-      <p class="modules-line">
-        <strong>Modules:</strong> Clinical Chat &middot; Lab Interpretation (52 analytes) &middot; ECG Analysis &middot; Scribe &middot; Quiz Bank &middot; Flashcards &middot; Drug Interactions &middot; Clinical Cases &middot; WhatsApp &middot; CID-10/TUSS
-      </p>
+      <div class="wrap">
+        <p class="modules-line rv"><strong>Modules:</strong> Clinical Chat &middot; Lab Interpretation (52 analytes) &middot; ECG Analysis &middot; Scribe &middot; Quiz Bank &middot; Flashcards &middot; Drug Interactions &middot; Clinical Cases &middot; WhatsApp &middot; CID-10/TUSS</p>
+      </div>
     </div>
   </section>
 
   <!-- HACKATHONS -->
-  <section>
-    <div class="container">
-      <p class="section-label">Hackathons</p>
-
-      <div class="hackathon-item">
-        <div class="hackathon-title">Antler Codex Hackathon</div>
-        <div class="hackathon-subtitle">Winner &mdash; Agents Track + DeepInvent Science Prize</div>
-        <div class="hackathon-detail">$250K grant. Built pharmacovigilance protocol platform for therapeutic compounds. 7 surfaces shipped in 72 hours.</div>
-        <div class="hackathon-links">
-          <a class="hackathon-link" href="https://medium.com/@nomad-link-id/we-won-the-antler-codex-hackathon-and-the-deepinvent-science-prize-heres-what-we-built-9fd109a3f196" target="_blank" rel="noopener">Read writeup &rarr;</a>
+  <section class="sec sec-alt" id="hackathons">
+    <div class="wrap">
+      <div class="bar rv"></div>
+      <span class="sec-label rv">Hackathons</span>
+      <div class="hack-grid">
+        <div class="hack-card rv">
+          <div class="hack-label">Winner</div>
+          <div class="hack-title">Antler Codex Hackathon</div>
+          <div class="hack-subtitle">Agents Track + DeepInvent Science Prize</div>
+          <div class="hack-detail">$250K grant. Built pharmacovigilance protocol platform for therapeutic compounds. 7 surfaces shipped in 72 hours.</div>
+          <div class="hack-links">
+            <a class="hack-link" href="https://medium.com/@nomad-link-id/we-won-the-antler-codex-hackathon-and-the-deepinvent-science-prize-heres-what-we-built-9fd109a3f196" target="_blank" rel="noopener">Read writeup &rarr;</a>
+          </div>
+        </div>
+        <div class="hack-card rv">
+          <div class="hack-label">Winner</div>
+          <div class="hack-title">webAI YOLO26 MLX Build Challenge</div>
+          <div class="hack-subtitle">Enterprise Track</div>
+          <div class="hack-detail">Built SENTINEL &mdash; on-device visual triage AI. YOLO26-MLX on Apple Silicon. No cloud. No internet. WiFi off, model running.</div>
+          <div class="hack-links">
+            <a class="hack-link" href="https://youtu.be/c2v5Mdg5fpw" target="_blank" rel="noopener">Watch demo &rarr;</a>
+            <a class="hack-link" href="https://github.com/nomad-link-id/sentinel-mlx" target="_blank" rel="noopener">View code &rarr;</a>
+          </div>
         </div>
       </div>
-
-      <div class="hackathon-item">
-        <div class="hackathon-title">webAI YOLO26 MLX Build Challenge</div>
-        <div class="hackathon-subtitle">Winner &mdash; Enterprise Track</div>
-        <div class="hackathon-detail">Built SENTINEL &mdash; on-device visual triage AI. YOLO26-MLX on Apple Silicon. No cloud. No internet. WiFi off, model running.</div>
-        <div class="hackathon-links">
-          <a class="hackathon-link" href="https://youtu.be/c2v5Mdg5fpw" target="_blank" rel="noopener">Watch demo &rarr;</a>
-          <a class="hackathon-link" href="https://github.com/nomad-link-id/sentinel-mlx" target="_blank" rel="noopener">View code &rarr;</a>
-        </div>
-      </div>
-
     </div>
   </section>
 
   <!-- OPEN SOURCE -->
-  <section>
-    <div class="container">
-      <p class="section-label">Open Source</p>
+  <section class="sec" id="oss">
+    <div class="wrap">
+      <div class="bar rv"></div>
+      <span class="sec-label rv">Open Source</span>
       <div class="repo-list">
-
-        <div class="repo-item">
+        <div class="repo-item rv">
           <div>
             <div class="repo-name">regulated-ai-audit</div>
             <div class="repo-desc">Audit framework for AI in regulated domains.</div>
@@ -710,8 +424,7 @@
           </div>
           <a class="repo-link" href="https://github.com/nomad-link-id/regulated-ai-audit" target="_blank" rel="noopener">github.com &rarr;</a>
         </div>
-
-        <div class="repo-item">
+        <div class="repo-item rv">
           <div>
             <div class="repo-name">hybrid-rag-pipeline</div>
             <div class="repo-desc">BM25 + semantic + RRF retrieval.</div>
@@ -719,8 +432,7 @@
           </div>
           <a class="repo-link" href="https://github.com/nomad-link-id/hybrid-rag-pipeline" target="_blank" rel="noopener">github.com &rarr;</a>
         </div>
-
-        <div class="repo-item">
+        <div class="repo-item rv">
           <div>
             <div class="repo-name">citation-guard</div>
             <div class="repo-desc">Deterministic citation verification.</div>
@@ -728,8 +440,7 @@
           </div>
           <a class="repo-link" href="https://github.com/nomad-link-id/citation-guard" target="_blank" rel="noopener">github.com &rarr;</a>
         </div>
-
-        <div class="repo-item">
+        <div class="repo-item rv">
           <div>
             <div class="repo-name">model-router-chain</div>
             <div class="repo-desc">Complexity-based LLM routing.</div>
@@ -737,8 +448,7 @@
           </div>
           <a class="repo-link" href="https://github.com/nomad-link-id/model-router-chain" target="_blank" rel="noopener">github.com &rarr;</a>
         </div>
-
-        <div class="repo-item">
+        <div class="repo-item rv">
           <div>
             <div class="repo-name">healthcare-ai-playbook</div>
             <div class="repo-desc">25 techniques for AI in regulated healthcare.</div>
@@ -746,8 +456,7 @@
           </div>
           <a class="repo-link" href="https://github.com/nomad-link-id/healthcare-ai-playbook" target="_blank" rel="noopener">github.com &rarr;</a>
         </div>
-
-        <div class="repo-item">
+        <div class="repo-item rv">
           <div>
             <div class="repo-name">sentinel-mlx</div>
             <div class="repo-desc">On-device visual triage AI. YOLO26-MLX on Apple Silicon.</div>
@@ -755,8 +464,7 @@
           </div>
           <a class="repo-link" href="https://github.com/nomad-link-id/sentinel-mlx" target="_blank" rel="noopener">github.com &rarr;</a>
         </div>
-
-        <div class="repo-item">
+        <div class="repo-item rv">
           <div>
             <div class="repo-name">brazilian-phi</div>
             <div class="repo-desc">First PII detection benchmark for Brazilian clinical text.</div>
@@ -764,61 +472,61 @@
           </div>
           <a class="repo-link" href="https://github.com/nomad-link-id/brazilian-phi" target="_blank" rel="noopener">github.com &rarr;</a>
         </div>
-
       </div>
     </div>
   </section>
 
   <!-- ARTICLES -->
-  <section>
-    <div class="container">
-      <p class="section-label">Articles</p>
+  <section class="sec sec-alt">
+    <div class="wrap">
+      <div class="bar rv"></div>
+      <span class="sec-label rv">Articles</span>
       <div class="article-list">
-        <div class="article-item">
+        <div class="article-item rv">
           <span class="article-num">01</span>
-          <a class="article-title" href="https://medium.com/@nomad-link-id/we-won-the-antler-codex-hackathon-and-the-deepinvent-science-prize-heres-what-we-built-9fd109a3f196" target="_blank" rel="noopener">We Won the Antler Codex Hackathon and the DeepInvent Science Prize. Here's What We Built.</a>
+          <a class="article-title" href="https://medium.com/@nomad-link-id/we-won-the-antler-codex-hackathon-and-the-deepinvent-science-prize-heres-what-we-built-9fd109a3f196" target="_blank" rel="noopener">We Won the Antler Codex Hackathon and the DeepInvent Science Prize. Here&rsquo;s What We Built.</a>
         </div>
-        <div class="article-item">
+        <div class="article-item rv">
           <span class="article-num">02</span>
           <a class="article-title" href="https://medium.com/@nomad-link-id" target="_blank" rel="noopener">WiFi Off. Model Running. We Won the webAI YOLO26 Enterprise Track.</a>
         </div>
-        <div class="article-item">
+        <div class="article-item rv">
           <span class="article-num">03</span>
           <a class="article-title" href="https://medium.com/@nomad-link-id" target="_blank" rel="noopener">RAG Engineering in Practice: What Nobody Tells You</a>
         </div>
-        <div class="article-item">
+        <div class="article-item rv">
           <span class="article-num">04</span>
           <a class="article-title" href="https://medium.com/@nomad-link-id" target="_blank" rel="noopener">RAG Is Not a Search Problem</a>
         </div>
-        <div class="article-item">
+        <div class="article-item rv">
           <span class="article-num">05</span>
           <a class="article-title" href="https://medium.com/@nomad-link-id" target="_blank" rel="noopener">How I Solved 23% of RAG Hallucinations</a>
         </div>
-        <div class="article-item">
+        <div class="article-item rv">
           <span class="article-num">06</span>
           <a class="article-title" href="https://medium.com/@nomad-link-id" target="_blank" rel="noopener">LLM Routing: Why One Model Is Never Enough</a>
         </div>
-        <div class="article-item">
+        <div class="article-item rv">
           <span class="article-num">07</span>
           <a class="article-title" href="https://medium.com/@nomad-link-id" target="_blank" rel="noopener">Healthcare AI Compliance: Building for Regulated Markets</a>
         </div>
-        <div class="article-item">
+        <div class="article-item rv">
           <span class="article-num">08</span>
           <a class="article-title" href="https://medium.com/@nomad-link-id" target="_blank" rel="noopener">Why I Left Venture Capital</a>
         </div>
-        <div class="article-item">
+        <div class="article-item rv">
           <span class="article-num">09</span>
           <a class="article-title" href="https://medium.com/@nomad-link-id" target="_blank" rel="noopener">The Hardest Conversation I Had as a VC</a>
         </div>
-        <div class="article-item">
+        <div class="article-item rv">
           <span class="article-num">10</span>
           <a class="article-title" href="https://medium.com/@nomad-link-id" target="_blank" rel="noopener">I Stopped Chasing the Right Answer</a>
         </div>
-        <div class="article-item">
+        <div class="article-item rv">
           <span class="article-num">11</span>
           <a class="article-title" href="https://medium.com/@nomad-link-id" target="_blank" rel="noopener">What Kodak Taught Me About Position vs Idea</a>
         </div>
-        <div class="article-item">
+        <div class="article-item rv">
           <span class="article-num">12</span>
           <a class="article-title" href="https://medium.com/@nomad-link-id" target="_blank" rel="noopener">What Stanford Design Thinking Actually Taught Me</a>
         </div>
@@ -827,10 +535,11 @@
   </section>
 
   <!-- STACK -->
-  <section>
-    <div class="container">
-      <p class="section-label">Stack</p>
-      <div class="stack-grid">
+  <section class="sec">
+    <div class="wrap">
+      <div class="bar rv"></div>
+      <span class="sec-label rv">Stack</span>
+      <div class="stack-grid rv">
         <div class="stack-row">
           <span class="stack-label">Languages</span>
           <span class="stack-value">TypeScript &middot; Python &middot; SQL &middot; JavaScript</span>
@@ -856,78 +565,71 @@
   </section>
 
   <!-- EXPERIENCE -->
-  <section>
-    <div class="container">
-      <p class="section-label">Experience</p>
-      <div class="exp-list">
-
-        <div class="exp-item">
-          <div class="exp-period">2026 &ndash; Present</div>
-          <div>
-            <div class="exp-role">Independent Researcher &amp; Engineer</div>
-            <div class="exp-org">Austin, TX</div>
-            <div class="exp-desc">8 published manuscripts. Patent pending. 2 hackathons won (Antler Codex + webAI YOLO26). Cross-national pharmacovigilance research across 3 countries. OHDSI community member.</div>
-          </div>
+  <section class="sec sec-alt" id="experience">
+    <div class="wrap">
+      <div class="bar rv"></div>
+      <span class="sec-label rv">Experience</span>
+      <div class="funnel">
+        <div class="f-step rv">
+          <div class="f-dot"></div>
+          <div class="f-period">2026 &ndash; Present</div>
+          <div class="f-role">Independent Researcher &amp; Engineer</div>
+          <div class="f-org">Austin, TX</div>
+          <p class="f-desc">8 published manuscripts. Patent pending. 2 hackathons won (Antler Codex + webAI YOLO26). Cross-national pharmacovigilance research across 3 countries. OHDSI community member.</p>
         </div>
-
-        <div class="exp-item">
-          <div class="exp-period">2024 &ndash; Present</div>
-          <div>
-            <div class="exp-role">Applied AI Research</div>
-            <div class="exp-org">San Diego, CA &rarr; Austin, TX</div>
-            <div class="exp-desc">Built clinical AI research system solo. Published peer-reviewed research. 5 open-source repos. 100+ tests. Academic programs at UC San Diego and Inter-American University.</div>
-          </div>
+        <div class="f-step rv">
+          <div class="f-dot"></div>
+          <div class="f-period">2024 &ndash; Present</div>
+          <div class="f-role">Applied AI Research</div>
+          <div class="f-org">San Diego, CA &rarr; Austin, TX</div>
+          <p class="f-desc">Built clinical AI research system solo. Published peer-reviewed research. 5 open-source repos. 100+ tests. Academic programs at UC San Diego and Inter-American University.</p>
         </div>
-
-        <div class="exp-item">
-          <div class="exp-period">2018 &ndash; 2020</div>
-          <div>
-            <div class="exp-role">Founder &amp; CEO</div>
-            <div class="exp-org">Kubrick (acquired)</div>
-            <div class="exp-desc">Influencer marketing platform. 6 engineers. Customers included Uber, Airbnb, Spotify. Technology licensed and acquired.</div>
-          </div>
+        <div class="f-step rv">
+          <div class="f-dot"></div>
+          <div class="f-period">2018 &ndash; 2020</div>
+          <div class="f-role">Founder &amp; CEO</div>
+          <div class="f-org">Kubrick (acquired)</div>
+          <p class="f-desc">Influencer marketing platform. 6 engineers. Customers included Uber, Airbnb, Spotify. Technology licensed and acquired.</p>
         </div>
-
-        <div class="exp-item">
-          <div class="exp-period">2018 &ndash; 2024</div>
-          <div>
-            <div class="exp-role">Talent Partner</div>
-            <div class="exp-org">OpenVC / AVIV Partners &mdash; Strategy, Operations &amp; Technology</div>
-            <div class="exp-desc">46 companies evaluated. R$1B+ AUM. Technology risk assessment. Mentor: Mauro Muratório (co-founder Microsoft Brazil).</div>
-          </div>
+        <div class="f-step rv">
+          <div class="f-dot"></div>
+          <div class="f-period">2018 &ndash; 2024</div>
+          <div class="f-role">Talent Partner</div>
+          <div class="f-org">OpenVC / AVIV Partners &mdash; Strategy, Operations &amp; Technology</div>
+          <p class="f-desc">46 companies evaluated. R$1B+ AUM. Technology risk assessment. Mentor: Mauro Muratório (co-founder Microsoft Brazil).</p>
         </div>
-
       </div>
     </div>
   </section>
 
   <!-- EDUCATION -->
-  <section>
-    <div class="container">
-      <p class="section-label">Education</p>
+  <section class="sec">
+    <div class="wrap">
+      <div class="bar rv"></div>
+      <span class="sec-label rv">Education</span>
       <div class="edu-list">
-        <div class="edu-item">
+        <div class="edu-item rv">
           <div>
             <div class="edu-inst">Stanford University</div>
             <div class="edu-program">Design Thinking</div>
           </div>
           <span class="edu-year">2019</span>
         </div>
-        <div class="edu-item">
+        <div class="edu-item rv">
           <div>
             <div class="edu-inst">UC San Diego</div>
             <div class="edu-program">International Programs</div>
           </div>
           <span class="edu-year">2024</span>
         </div>
-        <div class="edu-item">
+        <div class="edu-item rv">
           <div>
             <div class="edu-inst">Inter-American University</div>
             <div class="edu-program">Business Administration</div>
           </div>
           <span class="edu-year">2024 &ndash; 2025</span>
         </div>
-        <div class="edu-item">
+        <div class="edu-item rv">
           <div>
             <div class="edu-inst">FMU University</div>
             <div class="edu-program">Law (J.D.)</div>
@@ -939,10 +641,11 @@
   </section>
 
   <!-- CONNECT -->
-  <section>
-    <div class="container">
-      <p class="section-label">Connect</p>
-      <div class="connect-grid">
+  <section class="sec sec-alt" id="connect">
+    <div class="wrap">
+      <div class="bar rv"></div>
+      <span class="sec-label rv">Connect</span>
+      <div class="connect-grid rv">
         <div class="connect-item">
           <span class="connect-key">Web</span>
           <a class="connect-val" href="https://igoreduardo.com">igoreduardo.com</a>
@@ -970,6 +673,33 @@
       </div>
     </div>
   </section>
+
+  <script>
+    window.addEventListener('scroll', () => {
+      document.getElementById('nav').classList.toggle('show', window.scrollY > 300);
+    });
+
+    const obs = new IntersectionObserver(e => {
+      e.forEach(x => { if (x.isIntersecting) x.target.classList.add('vis'); });
+    }, { threshold: .06, rootMargin: '0px 0px -30px 0px' });
+    document.querySelectorAll('.rv').forEach(el => obs.observe(el));
+
+    const fO = new IntersectionObserver(e => {
+      e.forEach(x => {
+        const d = x.target.querySelector('.f-dot');
+        if (d) {
+          if (x.isIntersecting) {
+            d.style.background = 'var(--accent)';
+            d.style.boxShadow = '0 0 0 4px var(--accent-light)';
+          } else {
+            d.style.background = 'var(--white)';
+            d.style.boxShadow = 'none';
+          }
+        }
+      });
+    }, { threshold: .5 });
+    document.querySelectorAll('.f-step').forEach(el => fO.observe(el));
+  </script>
 
 </body>
 </html>
