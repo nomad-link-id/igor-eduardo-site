@@ -16,12 +16,13 @@
     }
 
     :root {
-      --bg: #0a0a0a;
-      --text: #f0ece4;
-      --accent: #c4956a;
-      --secondary: #888888;
-      --border: #1e1e1e;
-      --surface: #111111;
+      --bg: #1a1612;
+      --text: #e8e0d4;
+      --accent: #c9a96e;
+      --accent-hover: #d4b87a;
+      --secondary: #9b8e7e;
+      --border: #2e2923;
+      --surface: #231f1b;
     }
 
     html {
@@ -100,7 +101,7 @@
     }
 
     .links-row a:hover {
-      color: var(--accent);
+      color: var(--accent-hover);
     }
 
     .links-row span {
@@ -183,6 +184,54 @@
       line-height: 1.5;
     }
 
+    /* HACKATHONS */
+    .hackathon-item {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-left: 2px solid var(--accent);
+      padding: 24px 28px;
+      margin-bottom: 1px;
+    }
+
+    .hackathon-title {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 4px;
+    }
+
+    .hackathon-subtitle {
+      font-size: 0.8rem;
+      color: var(--accent);
+      margin-bottom: 12px;
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    .hackathon-detail {
+      font-size: 0.85rem;
+      color: var(--secondary);
+      line-height: 1.6;
+      margin-bottom: 14px;
+    }
+
+    .hackathon-links {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .hackathon-link {
+      font-size: 0.75rem;
+      color: var(--accent);
+      text-decoration: none;
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    .hackathon-link:hover {
+      color: var(--accent-hover);
+      text-decoration: underline;
+    }
+
     /* WHAT I BUILT */
     .stats-grid {
       display: grid;
@@ -239,7 +288,7 @@
     }
 
     .repo-item:hover {
-      border-color: #2a2a2a;
+      border-color: #3a342e;
     }
 
     .repo-name {
@@ -273,7 +322,7 @@
     }
 
     .repo-link:hover {
-      color: var(--accent);
+      color: var(--accent-hover);
     }
 
     /* ARTICLES */
@@ -312,7 +361,7 @@
     }
 
     .article-title:hover {
-      color: var(--accent);
+      color: var(--accent-hover);
     }
 
     /* STACK */
@@ -455,7 +504,7 @@
     }
 
     .connect-val:hover {
-      color: var(--accent);
+      color: var(--accent-hover);
     }
 
     a.connect-val {
@@ -550,7 +599,7 @@
       <a class="research-doi" href="https://huggingface.co/datasets/Nomad-link-id/glp1-faers-2004-2024" target="_blank" rel="noopener">Dataset: HuggingFace &rarr;</a>
 
       <p class="research-title">Class-Wide Impaired Gastric Emptying Signal Across Nine GLP-1 Receptor Agonist Agents: Indication-Stratified Pharmacovigilance Analysis of 6,868 Cases with Cross-National Validation</p>
-      <p class="research-meta">Research Square &mdash; Prescreening</p>
+      <p class="research-meta">Research Square &mdash; Prescreening (DOI pending)</p>
       <p class="research-meta" style="margin-bottom: 32px;">&nbsp;</p>
 
       <p class="research-title">Hidden in Plain Sight: National Benchmarks for Sepsis Mortality, Dengue Burden, and Antimicrobial Use from 35 Million Hospitalizations in Brazil's Universal Health System</p>
@@ -613,6 +662,33 @@
       <p class="modules-line">
         <strong>Modules:</strong> Clinical Chat &middot; Lab Interpretation (52 analytes) &middot; ECG Analysis &middot; Scribe &middot; Quiz Bank &middot; Flashcards &middot; Drug Interactions &middot; Clinical Cases &middot; WhatsApp &middot; CID-10/TUSS
       </p>
+    </div>
+  </section>
+
+  <!-- HACKATHONS -->
+  <section>
+    <div class="container">
+      <p class="section-label">Hackathons</p>
+
+      <div class="hackathon-item">
+        <div class="hackathon-title">Antler Codex Hackathon</div>
+        <div class="hackathon-subtitle">Winner &mdash; Agents Track + DeepInvent Science Prize</div>
+        <div class="hackathon-detail">$250K grant. Built pharmacovigilance protocol platform for therapeutic compounds. 7 surfaces shipped in 72 hours.</div>
+        <div class="hackathon-links">
+          <a class="hackathon-link" href="https://medium.com/@nomad-link-id/we-won-the-antler-codex-hackathon-and-the-deepinvent-science-prize-heres-what-we-built-9fd109a3f196" target="_blank" rel="noopener">Read writeup &rarr;</a>
+        </div>
+      </div>
+
+      <div class="hackathon-item">
+        <div class="hackathon-title">webAI YOLO26 MLX Build Challenge</div>
+        <div class="hackathon-subtitle">Winner &mdash; Enterprise Track</div>
+        <div class="hackathon-detail">Built SENTINEL &mdash; on-device visual triage AI. YOLO26-MLX on Apple Silicon. No cloud. No internet. WiFi off, model running.</div>
+        <div class="hackathon-links">
+          <a class="hackathon-link" href="https://youtu.be/c2v5Mdg5fpw" target="_blank" rel="noopener">Watch demo &rarr;</a>
+          <a class="hackathon-link" href="https://github.com/nomad-link-id/sentinel-mlx" target="_blank" rel="noopener">View code &rarr;</a>
+        </div>
+      </div>
+
     </div>
   </section>
 
@@ -853,13 +929,6 @@
             <div class="edu-program">Law (J.D.)</div>
           </div>
           <span class="edu-year">2012 &ndash; 2016</span>
-        </div>
-        <div class="edu-item">
-          <div>
-            <div class="edu-inst">Y Combinator</div>
-            <div class="edu-program">Startup School</div>
-          </div>
-          <span class="edu-year">2024</span>
         </div>
       </div>
     </div>
