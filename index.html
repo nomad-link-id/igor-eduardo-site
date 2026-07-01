@@ -1,675 +1,156 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Igor Eduardo &mdash; Applied AI &middot; Regulated Healthcare</title>
-  <meta name="description" content="Applied AI engineer and researcher building clinical AI systems for regulated healthcare. 8 manuscripts. 2 hackathon wins. Austin, TX." />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Source+Sans+3:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Minds.ai — Acesso restrito</title>
+<style>
+  :root { --bg:#0a0a0a; --panel:#141414; --line:#262626; --fg:#ededed; --mut:#8a8a8a; --acc:#e8e3d8; }
+  * { box-sizing:border-box; }
+  body { margin:0; font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif; background:var(--bg); color:var(--fg); }
+  #gate { position:fixed; inset:0; display:flex; align-items:center; justify-content:center; padding:24px; background:var(--bg); z-index:10; }
+  .card { width:100%; max-width:460px; background:var(--panel); border:1px solid var(--line); border-radius:14px; padding:28px; }
+  .card h1 { font-size:18px; margin:0 0 4px; }
+  .card .sub { color:var(--mut); font-size:13px; margin:0 0 20px; }
+  label { display:block; font-size:12px; color:var(--mut); margin:14px 0 6px; }
+  input[type=text], input[type=email] { width:100%; padding:11px 12px; background:#0e0e0e; border:1px solid var(--line); border-radius:8px; color:var(--fg); font-size:14px; }
+  .nda { margin:18px 0 8px; padding:14px; background:#0e0e0e; border:1px solid var(--line); border-radius:8px; font-size:12px; line-height:1.6; color:#b9b9b9; max-height:160px; overflow:auto; }
+  .agree { display:flex; gap:9px; align-items:flex-start; margin:14px 0 18px; font-size:13px; color:#cdcdcd; }
+  .agree input { margin-top:2px; }
+  button { width:100%; padding:12px; border:0; border-radius:8px; background:var(--acc); color:#111; font-weight:600; font-size:14px; cursor:pointer; }
+  button:disabled { opacity:.45; cursor:not-allowed; }
+  .err { color:#ff8c8c; font-size:12px; margin-top:10px; min-height:14px; }
 
-    :root {
-      --white: #FFFFFF;
-      --bg: #FAFAFA;
-      --bg2: #F5F4F1;
-      --bg3: #EDECEA;
-      --ink: #0D0D0D;
-      --ink2: #1A1A1A;
-      --ink3: #404040;
-      --ink4: #666666;
-      --ink5: #B8B8B8;
-      --accent: #1B3A5C;
-      --accent2: #264D73;
-      --accent-light: #E8EFF5;
-      --warm: #B8956A;
-      --warm-light: #F8F3ED;
-    }
-
-    html { font-size: 16px; scroll-behavior: smooth; }
-
-    body {
-      font-family: 'Source Sans 3', sans-serif;
-      font-size: 1.05rem;
-      color: var(--ink2);
-      line-height: 1.75;
-      -webkit-font-smoothing: antialiased;
-      background: var(--bg);
-    }
-
-    h1 { font-family: 'Playfair Display', serif; font-size: clamp(2.2rem, 4.5vw, 3.2rem); font-weight: 400; line-height: 1.12; letter-spacing: -.015em; color: var(--ink); }
-    h2 { font-family: 'Playfair Display', serif; font-size: clamp(1.5rem, 2.5vw, 1.9rem); font-weight: 400; line-height: 1.22; color: var(--ink); }
-    p { color: var(--ink2); font-size: .95rem; font-weight: 400; max-width: 640px; }
-    strong { color: var(--ink); font-weight: 600; }
-
-    /* LAYOUT */
-    .sec { padding: 5.5rem 0; }
-    .sec-alt { background: var(--bg2); }
-    .wrap { max-width: 780px; margin: 0 auto; padding: 0 1.5rem; }
-    .wrap-w { max-width: 960px; margin: 0 auto; padding: 0 1.5rem; }
-
-    /* ACCENT BAR */
-    .bar { width: 36px; height: 2px; background: var(--warm); margin-bottom: 1.25rem; }
-
-    /* SECTION LABEL */
-    .sec-label {
-      font-family: 'Space Mono', monospace;
-      font-size: .72rem;
-      letter-spacing: .15em;
-      text-transform: uppercase;
-      color: var(--warm);
-      margin-bottom: 2rem;
-      display: block;
-    }
-
-    /* NAV */
-    .nav {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-      height: 50px; display: flex; align-items: center;
-      justify-content: space-between; padding: 0 2.5rem;
-      background: rgba(255,255,255,.92);
-      backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
-      border-bottom: 1px solid rgba(0,0,0,.05);
-      transform: translateY(-100%); transition: transform .35s;
-    }
-    .nav.show { transform: translateY(0); }
-    .nav-brand { font-family: 'Playfair Display', serif; font-size: .95rem; color: var(--accent); font-weight: 500; }
-    .nav-links { display: flex; gap: 2rem; }
-    .nav-links a { font-size: .65rem; color: var(--ink4); text-decoration: none; letter-spacing: .08em; text-transform: uppercase; font-weight: 500; transition: color .2s; }
-    .nav-links a:hover { color: var(--accent); }
-
-    /* HERO */
-    .hero { min-height: 100vh; display: flex; align-items: center; background: var(--white); border-bottom: 1px solid var(--ink5); }
-    .hero-eyebrow {
-      font-family: 'Space Mono', monospace; font-size: .65rem;
-      letter-spacing: .2em; text-transform: uppercase; color: var(--warm);
-      margin-bottom: 2rem; opacity: 0; animation: up .6s ease .3s forwards;
-    }
-    .hero h1 { opacity: 0; animation: up .6s ease .45s forwards; }
-    .hero h1 em { font-style: italic; color: var(--accent); }
-    .hero-sub {
-      margin-top: 1.5rem; font-size: 1.02rem; max-width: 560px;
-      color: var(--ink3); font-weight: 300; line-height: 1.8;
-      opacity: 0; animation: up .6s ease .6s forwards;
-    }
-    .hero-rule { width: 48px; height: 2px; background: var(--warm); margin-top: 2.5rem; opacity: 0; animation: up .6s ease .75s forwards; }
-    .hero-links {
-      display: flex; flex-wrap: wrap; gap: 0; margin-top: 2rem;
-      opacity: 0; animation: up .6s ease .9s forwards;
-    }
-    .hero-links a {
-      font-family: 'Space Mono', monospace; font-size: .6rem;
-      letter-spacing: .08em; text-transform: uppercase;
-      color: var(--ink4); text-decoration: none; transition: color .2s;
-    }
-    .hero-links a:hover { color: var(--accent); }
-    .hero-links .sep { color: var(--ink5); padding: 0 10px; font-size: .6rem; }
-
-    /* RESEARCH */
-    .paper { margin-bottom: 2.5rem; padding-bottom: 2.5rem; border-bottom: 1px solid var(--ink5); }
-    .paper:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
-    .paper-title {
-      font-family: 'Playfair Display', serif; font-size: 1.05rem;
-      font-weight: 500; color: var(--ink); line-height: 1.5;
-      margin-bottom: .5rem; max-width: 680px;
-    }
-    .paper-meta { font-family: 'Space Mono', monospace; font-size: .7rem; color: var(--ink4); letter-spacing: .04em; margin-bottom: .4rem; }
-    .paper-finding { font-size: .9rem; color: var(--ink3); font-style: italic; margin-bottom: .5rem; max-width: 640px; }
-    .paper-doi {
-      font-family: 'Space Mono', monospace; font-size: .7rem; color: var(--accent);
-      text-decoration: none; display: inline-block; margin-right: 1.25rem;
-      margin-top: .2rem; transition: color .2s;
-    }
-    .paper-doi:hover { color: var(--accent2); text-decoration: underline; }
-
-    /* DATA CARDS */
-    .d-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(155px, 1fr)); gap: .85rem; margin: 1.5rem 0; }
-    .d-card {
-      background: var(--white); border: 1px solid rgba(0,0,0,.06);
-      border-radius: 6px; padding: 1.1rem; text-align: center;
-      transition: all .25s; box-shadow: 0 1px 3px rgba(0,0,0,.03);
-    }
-    .d-card:hover { transform: translateY(-1px); box-shadow: 0 4px 14px rgba(0,0,0,.05); }
-    .d-num { font-family: 'Playfair Display', serif; font-size: 1.8rem; font-weight: 500; color: var(--accent); line-height: 1; margin-bottom: .2rem; }
-    .d-label { font-size: .74rem; color: var(--ink3); line-height: 1.3; }
-
-    /* MODULES */
-    .modules-line { font-size: .85rem; color: var(--ink3); line-height: 1.8; margin-top: 1.5rem; }
-    .modules-line strong { color: var(--ink); font-weight: 600; }
-
-    /* HACKATHONS */
-    .hack-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1rem; margin-top: 1.5rem; }
-    .hack-card {
-      background: var(--white); border: 1px solid rgba(0,0,0,.06);
-      border-left: 3px solid var(--warm); border-radius: 0 6px 6px 0;
-      padding: 1.5rem; transition: all .25s;
-    }
-    .hack-card:hover { box-shadow: 0 4px 14px rgba(0,0,0,.05); }
-    .hack-label { font-family: 'Space Mono', monospace; font-size: .58rem; letter-spacing: .1em; text-transform: uppercase; color: var(--warm); margin-bottom: .5rem; }
-    .hack-title { font-family: 'Playfair Display', serif; font-size: 1.1rem; font-weight: 500; color: var(--ink); margin-bottom: .3rem; line-height: 1.3; }
-    .hack-subtitle { font-family: 'Space Mono', monospace; font-size: .6rem; color: var(--accent); margin-bottom: .85rem; letter-spacing: .04em; }
-    .hack-detail { font-size: .85rem; color: var(--ink3); line-height: 1.65; margin-bottom: 1rem; }
-    .hack-links { display: flex; gap: 1.25rem; flex-wrap: wrap; }
-    .hack-link { font-family: 'Space Mono', monospace; font-size: .62rem; color: var(--accent); text-decoration: none; transition: color .2s; }
-    .hack-link:hover { color: var(--accent2); text-decoration: underline; }
-
-    /* REPOS */
-    .repo-list { display: flex; flex-direction: column; gap: 1px; margin-top: 1.5rem; }
-    .repo-item {
-      background: var(--white); border: 1px solid rgba(0,0,0,.06);
-      padding: 1rem 1.25rem; display: grid;
-      grid-template-columns: 1fr auto; align-items: start; gap: 1rem;
-      transition: background .2s;
-    }
-    .repo-item:hover { background: var(--bg3); }
-    .repo-name { font-family: 'Space Mono', monospace; font-size: .82rem; font-weight: 700; color: var(--accent); margin-bottom: .3rem; }
-    .repo-desc { font-size: .92rem; color: var(--ink2); line-height: 1.5; }
-    .repo-tests { font-family: 'Space Mono', monospace; font-size: .68rem; color: var(--ink4); margin-top: .2rem; }
-    .repo-link { font-family: 'Space Mono', monospace; font-size: .68rem; color: var(--ink4); text-decoration: none; white-space: nowrap; padding-top: 2px; transition: color .2s; }
-    .repo-link:hover { color: var(--accent); }
-
-    /* ARTICLES */
-    .article-list { margin-top: 1.5rem; }
-    .article-item { display: flex; align-items: baseline; gap: 1rem; padding: .85rem 0; border-bottom: 1px solid rgba(0,0,0,.05); }
-    .article-item:last-child { border-bottom: none; }
-    .article-num { font-family: 'Space Mono', monospace; font-size: .68rem; color: var(--ink4); min-width: 20px; flex-shrink: 0; }
-    .article-title { font-size: 1rem; color: var(--ink2); text-decoration: none; line-height: 1.5; transition: color .2s; }
-    .article-title:hover { color: var(--accent); }
-
-    /* STACK */
-    .stack-grid { display: flex; flex-direction: column; gap: 0; margin-top: 1.5rem; }
-    .stack-row { display: flex; gap: 1rem; align-items: baseline; padding: .65rem 0; border-bottom: 1px solid rgba(0,0,0,.04); }
-    .stack-row:last-child { border-bottom: none; }
-    .stack-label { font-family: 'Space Mono', monospace; font-size: .68rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--ink4); min-width: 100px; flex-shrink: 0; }
-    .stack-value { font-size: 1rem; color: var(--ink2); }
-
-    /* EXPERIENCE — funnel */
-    .funnel { position: relative; padding-left: 3rem; margin-top: 1.5rem; }
-    .funnel::before {
-      content: ''; position: absolute; left: .75rem; top: 0; bottom: 0;
-      width: 1.5px;
-      background: linear-gradient(to bottom, var(--accent), rgba(27,58,92,.15), transparent);
-    }
-    .f-step { position: relative; margin-bottom: 2.5rem; }
-    .f-step:last-child { margin-bottom: 0; }
-    .f-dot {
-      position: absolute; left: -2.55rem; top: .3rem;
-      width: 10px; height: 10px; border-radius: 50%;
-      background: var(--white); border: 2px solid var(--accent); transition: all .3s;
-    }
-    .f-period { font-family: 'Space Mono', monospace; font-size: .6rem; color: var(--ink4); margin-bottom: .3rem; }
-    .f-role { font-size: .95rem; font-weight: 600; color: var(--ink); margin-bottom: .2rem; }
-    .f-org { font-size: .85rem; color: var(--warm); margin-bottom: .45rem; font-style: italic; }
-    .f-desc { font-size: .85rem; color: var(--ink3); line-height: 1.65; max-width: 560px; }
-
-    /* EDUCATION */
-    .edu-list { margin-top: 1.5rem; }
-    .edu-item { display: flex; justify-content: space-between; align-items: baseline; padding: .85rem 0; border-bottom: 1px solid rgba(0,0,0,.05); gap: 1rem; }
-    .edu-item:last-child { border-bottom: none; }
-    .edu-inst { font-size: .9rem; font-weight: 600; color: var(--ink); }
-    .edu-program { font-size: .8rem; color: var(--ink4); margin-top: .1rem; }
-    .edu-year { font-family: 'Space Mono', monospace; font-size: .62rem; color: var(--ink4); white-space: nowrap; flex-shrink: 0; }
-
-    /* CONNECT */
-    .connect-grid { display: flex; flex-direction: column; gap: .65rem; margin-top: 1.5rem; }
-    .connect-item { display: flex; align-items: baseline; gap: 1rem; }
-    .connect-key { font-family: 'Space Mono', monospace; font-size: .68rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--ink4); min-width: 90px; flex-shrink: 0; }
-    .connect-val { font-family: 'Space Mono', monospace; font-size: .82rem; color: var(--ink2); text-decoration: none; transition: color .2s; }
-    .connect-val:hover { color: var(--accent); }
-
-    /* SCROLL REVEAL */
-    .rv { opacity: 0; transform: translateY(18px); transition: opacity .55s ease, transform .55s ease; }
-    .rv.vis { opacity: 1; transform: translateY(0); }
-
-    @keyframes up { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
-
-    /* RESPONSIVE */
-    @media (max-width: 768px) {
-      .nav { padding: 0 1.25rem; }
-      .nav-links { display: none; }
-    }
-    @media (max-width: 600px) {
-      .sec { padding: 3.5rem 0; }
-      .wrap, .wrap-w { padding: 0 1.25rem; }
-      .d-row { grid-template-columns: repeat(2, 1fr); }
-      .hack-grid { grid-template-columns: 1fr; }
-      .repo-item { grid-template-columns: 1fr; }
-      .repo-link { display: none; }
-      .stack-row { flex-direction: column; gap: .2rem; }
-      .stack-label { min-width: unset; }
-      .edu-item { flex-direction: column; gap: .2rem; }
-      .funnel { padding-left: 2rem; }
-      .f-dot { left: -1.55rem; }
-    }
-  </style>
+  #app { display:none; height:100vh; grid-template-columns:1fr 380px; }
+  #deck { border:0; width:100%; height:100%; background:#fff; }
+  #pg { display:flex; flex-direction:column; border-left:1px solid var(--line); background:var(--panel); height:100vh; }
+  #pg header { padding:14px 16px; border-bottom:1px solid var(--line); }
+  #pg header b { font-size:14px; }
+  #pg header p { margin:4px 0 0; font-size:11px; color:var(--mut); line-height:1.5; }
+  #log { flex:1; overflow:auto; padding:16px; display:flex; flex-direction:column; gap:12px; }
+  .msg { font-size:13px; line-height:1.55; padding:10px 12px; border-radius:10px; max-width:92%; white-space:pre-wrap; }
+  .u { align-self:flex-end; background:#23314a; }
+  .a { align-self:flex-start; background:#0e0e0e; border:1px solid var(--line); }
+  #ask { display:flex; gap:8px; padding:12px; border-top:1px solid var(--line); }
+  #ask textarea { flex:1; resize:none; height:42px; padding:10px; background:#0e0e0e; border:1px solid var(--line); border-radius:8px; color:var(--fg); font-size:13px; font-family:inherit; }
+  #ask button { width:auto; padding:0 16px; }
+  .foot { font-size:10px; color:var(--mut); padding:8px 16px; border-top:1px solid var(--line); line-height:1.5; }
+  @media (max-width:900px){ #app{ grid-template-columns:1fr; grid-template-rows:55vh 45vh; } #pg{ border-left:0; border-top:1px solid var(--line); height:auto; } }
+</style>
 </head>
 <body>
 
-  <!-- NAV -->
-  <nav class="nav" id="nav">
-    <span class="nav-brand">Igor Eduardo</span>
-    <div class="nav-links">
-      <a href="#research">Research</a>
-      <a href="#built">Built</a>
-      <a href="#hackathons">Hackathons</a>
-      <a href="#oss">Open Source</a>
-      <a href="#experience">Experience</a>
-      <a href="#connect">Connect</a>
-    </div>
-  </nav>
+<div id="gate">
+  <div class="card">
+    <h1>Material confidencial — Minds.ai</h1>
+    <p class="sub">Acesso mediante identificação e aceite de confidencialidade.</p>
 
-  <!-- HERO -->
-  <div class="hero">
-    <div class="wrap">
-      <div class="hero-eyebrow">Applied AI &middot; Regulated Healthcare &mdash; Austin, TX</div>
-      <h1>Igor <em>Eduardo</em></h1>
-      <p class="hero-sub">7 years evaluating companies across healthtech, fintech, and SaaS from the investment side. Founded and exited a technology company. Last 3 years: solo-built clinical AI systems for regulated healthcare &mdash; shipping end-to-end in environments where LGPD, HIPAA, and CFM compliance are architecture decisions, not afterthoughts. 8 manuscripts. 2 hackathons won. Patent pending. Trilingual: English &middot; Portuguese &middot; Spanish.</p>
-      <div class="hero-rule"></div>
-      <div class="hero-links">
-        <a href="https://github.com/nomad-link-id" target="_blank" rel="noopener">GitHub</a>
-        <span class="sep">|</span>
-        <a href="https://medium.com/@nomad-link-id" target="_blank" rel="noopener">Medium</a>
-        <span class="sep">|</span>
-        <a href="https://orcid.org/0009-0005-6288-1135" target="_blank" rel="noopener">ORCID</a>
-        <span class="sep">|</span>
-        <a href="https://linkedin.com/in/igor-eduardo-00z" target="_blank" rel="noopener">LinkedIn</a>
-      </div>
+    <label>Nome completo</label>
+    <input type="text" id="g_name" autocomplete="name">
+    <label>E-mail corporativo</label>
+    <input type="email" id="g_email" autocomplete="email">
+
+    <div class="nda" id="ndaText">
+      [TEXTO DE NDA / CONFIDENCIALIDADE — A SER REVISADO E APROVADO PELO ADVOGADO BR ANTES DE PUBLICAR.]
+
+      Este material, incluindo projeções, metodologia e valores, é estritamente confidencial e destinado exclusivamente ao destinatário identificado. Ao prosseguir, você declara estar autorizado a recebê-lo em nome de sua instituição e concorda em não reproduzir, compartilhar ou divulgar seu conteúdo a terceiros sem autorização prévia por escrito da Minds.ai. As projeções são ilustrativas e não constituem compromisso de resultado.
     </div>
+
+    <label class="agree">
+      <input type="checkbox" id="g_agree">
+      <span>Declaro que li e concordo com os termos de confidencialidade acima e estou autorizado a acessar este material.</span>
+    </label>
+
+    <button id="g_btn" disabled>Acessar material</button>
+    <div class="err" id="g_err"></div>
   </div>
+</div>
 
-  <!-- PUBLISHED RESEARCH -->
-  <section class="sec sec-alt" id="research">
-    <div class="wrap">
-      <div class="bar rv"></div>
-      <span class="sec-label rv">Published Research</span>
-
-      <div class="paper rv">
-        <p class="paper-title">Global Health Data Interoperability Across Low- and Middle-Income Countries</p>
-        <p class="paper-meta">Nature &mdash; In Progress</p>
-        <p class="paper-finding">Cross-national harmonization of administrative health data across three countries</p>
-      </div>
-
-      <div class="paper rv">
-        <p class="paper-title">Substance-Level Disproportionate Reporting of Impaired Gastric Emptying for Five GLP-1 Receptor Agonists: A Reproducible Signal-Detection Analysis of the FDA Adverse Event Reporting System</p>
-        <p class="paper-meta">Preprint Posted</p>
-        <p class="paper-finding">Comparative pharmacovigilance analysis of GLP-1 receptor agonist adverse-event reporting.</p>
-        <a class="paper-doi" href="https://doi.org/10.21203/rs.3.rs-9818000" target="_blank" rel="noopener">doi.org/10.21203/rs.3.rs-9818000</a>
-      </div>
-
-      <div class="paper rv">
-        <p class="paper-title">Class-Wide Disproportionate Reporting of Impaired Gastric Emptying Across Nine GLP-1 Receptor Agonist Products: A Signal-Detection Analysis of the FDA Adverse Event Reporting System</p>
-        <p class="paper-meta">Preprint Posted</p>
-        <a class="paper-doi" href="https://doi.org/10.21203/rs.3.rs-9818062" target="_blank" rel="noopener">doi.org/10.21203/rs.3.rs-9818062</a>
-      </div>
-
-      <div class="paper rv">
-        <p class="paper-title">Hidden in Plain Sight: National Benchmarks for Sepsis Mortality, Dengue Burden, and Antimicrobial Use from 35 Million Hospitalizations in Brazil&rsquo;s Universal Health System</p>
-        <p class="paper-meta">Under Peer Review</p>
-        <a class="paper-doi" href="https://doi.org/10.21203/rs.3.rs-9818082" target="_blank" rel="noopener">doi.org/10.21203/rs.3.rs-9818082</a>
-      </div>
-
-      <div class="paper rv">
-        <p class="paper-title">Record-Breaking Dengue Epidemic in Brazil, 2024: Nationwide Analysis of 10.5 Million Cases and DENV-3 Reemergence</p>
-        <p class="paper-meta">Under Peer Review</p>
-        <a class="paper-doi" href="https://doi.org/10.21203/rs.3.rs-9818084" target="_blank" rel="noopener">doi.org/10.21203/rs.3.rs-9818084</a>
-      </div>
-
-      <div class="paper rv">
-        <p class="paper-title">Brazilian-PHI: Benchmarking Checksum-Validated Recognizers for CPF, CRM, CNS, CNPJ, RG, CEP, and Phone in Portuguese Clinical Text</p>
-        <p class="paper-meta">Preprint Posted</p>
-        <a class="paper-doi" href="https://doi.org/10.5281/zenodo.20076543" target="_blank" rel="noopener">doi.org/10.5281/zenodo.20076543</a>
-      </div>
-
-      <div class="paper rv">
-        <p class="paper-title">BM25 and Dense Retrieval Are Complementary for Portuguese Clinical Text: An Empirical Study of Hybrid RAG Across 500 Clinical Queries</p>
-        <p class="paper-meta">Zenodo &mdash; Open Access (55 views, 38 downloads)</p>
-        <a class="paper-doi" href="https://doi.org/10.5281/zenodo.19686739" target="_blank" rel="noopener">doi.org/10.5281/zenodo.19686739</a>
-        <a class="paper-doi" href="https://huggingface.co/datasets/igor-eduardo-research/mirage-pt" target="_blank" rel="noopener">Dataset: mirage-pt &rarr;</a>
-      </div>
-
+<div id="app">
+  <iframe id="deck" title="Proposta"></iframe>
+  <div id="pg">
+    <header>
+      <b>Perguntas sobre a proposta</b>
+      <p>Respostas informativas e não vinculantes, baseadas exclusivamente neste material. Não constituem compromisso de resultado.</p>
+    </header>
+    <div id="log"></div>
+    <div id="ask">
+      <textarea id="q" placeholder="Faça uma pergunta sobre a proposta..."></textarea>
+      <button id="send">Enviar</button>
     </div>
-  </section>
+    <div class="foot">Interações são registradas para fins de auditoria. Minds.ai · Confidencial.</div>
+  </div>
+</div>
 
-  <!-- WHAT I BUILT -->
-  <section class="sec" id="built">
-    <div class="wrap-w">
-      <div class="wrap">
-        <div class="bar rv"></div>
-        <span class="sec-label rv">What I Shipped</span>
-      </div>
-      <div class="d-row rv">
-        <div class="d-card">
-          <div class="d-num">49,447</div>
-          <div class="d-label">lines of code</div>
-        </div>
-        <div class="d-card">
-          <div class="d-num">78</div>
-          <div class="d-label">API routes</div>
-        </div>
-        <div class="d-card">
-          <div class="d-num">8</div>
-          <div class="d-label">published manuscripts</div>
-        </div>
-        <div class="d-card">
-          <div class="d-num">16</div>
-          <div class="d-label">AI modules</div>
-        </div>
-        <div class="d-card">
-          <div class="d-num">2</div>
-          <div class="d-label">hackathons won (May 2026)</div>
-        </div>
-        <div class="d-card">
-          <div class="d-num">1</div>
-          <div class="d-label">patent pending</div>
-        </div>
-        <div class="d-card">
-          <div class="d-num">3</div>
-          <div class="d-label">countries (cross-national)</div>
-        </div>
-        <div class="d-card">
-          <div class="d-num">5</div>
-          <div class="d-label">safety architecture layers</div>
-        </div>
-      </div>
-      <div class="wrap">
-        <p class="modules-line rv"><strong>Modules:</strong> Clinical Chat &middot; Lab Interpretation (52 analytes) &middot; ECG Analysis &middot; Scribe &middot; Quiz Bank &middot; Flashcards &middot; Drug Interactions &middot; Clinical Cases &middot; WhatsApp &middot; CID-10/TUSS</p>
-      </div>
-    </div>
-  </section>
+<script>
+  // DECK_FILE is replaced per project at build/deploy time, or set here directly per project.
+  var DECK_FILE = window.__DECK_FILE__ || "deck.html";
 
-  <!-- HACKATHONS -->
-  <section class="sec sec-alt" id="hackathons">
-    <div class="wrap">
-      <div class="bar rv"></div>
-      <span class="sec-label rv">Hackathons</span>
-      <div class="hack-grid">
-        <div class="hack-card rv">
-          <div class="hack-label">Winner</div>
-          <div class="hack-title">Antler Codex Hackathon</div>
-          <div class="hack-subtitle">Agents Track + DeepInvent Science Prize</div>
-          <div class="hack-detail">$250K grant. Built pharmacovigilance protocol platform for therapeutic compounds. 7 surfaces shipped in 72 hours.</div>
-          <div class="hack-links">
-            <a class="hack-link" href="https://medium.com/@nomad-link-id/we-won-the-antler-codex-hackathon-and-the-deepinvent-science-prize-heres-what-we-built-9fd109a3f196" target="_blank" rel="noopener">Read writeup &rarr;</a>
-          </div>
-        </div>
-        <div class="hack-card rv">
-          <div class="hack-label">Winner</div>
-          <div class="hack-title">webAI YOLO26 MLX Build Challenge</div>
-          <div class="hack-subtitle">Enterprise Track</div>
-          <div class="hack-detail">Built SENTINEL &mdash; on-device visual triage AI. YOLO26-MLX on Apple Silicon. No cloud. No internet. WiFi off, model running.</div>
-          <div class="hack-links">
-            <a class="hack-link" href="https://youtu.be/c2v5Mdg5fpw" target="_blank" rel="noopener">Watch demo &rarr;</a>
-            <a class="hack-link" href="https://github.com/nomad-link-id/sentinel-mlx" target="_blank" rel="noopener">View code &rarr;</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+  var viewer = { name:"", email:"" };
+  var history = [];
 
-  <!-- OPEN SOURCE -->
-  <section class="sec" id="oss">
-    <div class="wrap">
-      <div class="bar rv"></div>
-      <span class="sec-label rv">Open Source</span>
-      <div class="repo-list">
-        <div class="repo-item rv">
-          <div>
-            <div class="repo-name">regulated-ai-audit</div>
-            <div class="repo-desc">Audit framework for AI in regulated domains.</div>
-            <div class="repo-tests">39 tests</div>
-          </div>
-          <a class="repo-link" href="https://github.com/nomad-link-id/regulated-ai-audit" target="_blank" rel="noopener">github.com &rarr;</a>
-        </div>
-        <div class="repo-item rv">
-          <div>
-            <div class="repo-name">hybrid-rag-pipeline</div>
-            <div class="repo-desc">BM25 + semantic + RRF retrieval.</div>
-            <div class="repo-tests">28 tests</div>
-          </div>
-          <a class="repo-link" href="https://github.com/nomad-link-id/hybrid-rag-pipeline" target="_blank" rel="noopener">github.com &rarr;</a>
-        </div>
-        <div class="repo-item rv">
-          <div>
-            <div class="repo-name">citation-guard</div>
-            <div class="repo-desc">Deterministic citation verification.</div>
-            <div class="repo-tests">26 tests</div>
-          </div>
-          <a class="repo-link" href="https://github.com/nomad-link-id/citation-guard" target="_blank" rel="noopener">github.com &rarr;</a>
-        </div>
-        <div class="repo-item rv">
-          <div>
-            <div class="repo-name">model-router-chain</div>
-            <div class="repo-desc">Complexity-based LLM routing.</div>
-            <div class="repo-tests">18 tests</div>
-          </div>
-          <a class="repo-link" href="https://github.com/nomad-link-id/model-router-chain" target="_blank" rel="noopener">github.com &rarr;</a>
-        </div>
-        <div class="repo-item rv">
-          <div>
-            <div class="repo-name">healthcare-ai-playbook</div>
-            <div class="repo-desc">25 techniques for AI in regulated healthcare.</div>
-            <div class="repo-tests">&nbsp;</div>
-          </div>
-          <a class="repo-link" href="https://github.com/nomad-link-id/healthcare-ai-playbook" target="_blank" rel="noopener">github.com &rarr;</a>
-        </div>
-        <div class="repo-item rv">
-          <div>
-            <div class="repo-name">sentinel-mlx</div>
-            <div class="repo-desc">On-device visual triage AI. YOLO26-MLX on Apple Silicon.</div>
-            <div class="repo-tests">&nbsp;</div>
-          </div>
-          <a class="repo-link" href="https://github.com/nomad-link-id/sentinel-mlx" target="_blank" rel="noopener">github.com &rarr;</a>
-        </div>
-        <div class="repo-item rv">
-          <div>
-            <div class="repo-name">brazilian-phi</div>
-            <div class="repo-desc">First PII detection benchmark for Brazilian clinical text.</div>
-            <div class="repo-tests">&nbsp;</div>
-          </div>
-          <a class="repo-link" href="https://github.com/nomad-link-id/brazilian-phi" target="_blank" rel="noopener">github.com &rarr;</a>
-        </div>
-      </div>
-    </div>
-  </section>
+  var name = document.getElementById('g_name');
+  var email = document.getElementById('g_email');
+  var agree = document.getElementById('g_agree');
+  var btn = document.getElementById('g_btn');
+  var gerr = document.getElementById('g_err');
 
-  <!-- ARTICLES -->
-  <section class="sec sec-alt">
-    <div class="wrap">
-      <div class="bar rv"></div>
-      <span class="sec-label rv">Articles</span>
-      <div class="article-list">
-        <div class="article-item rv">
-          <span class="article-num">01</span>
-          <a class="article-title" href="https://medium.com/@nomad-link-id/we-won-the-antler-codex-hackathon-and-the-deepinvent-science-prize-heres-what-we-built-9fd109a3f196" target="_blank" rel="noopener">We Won the Antler Codex Hackathon and the DeepInvent Science Prize. Here&rsquo;s What We Built.</a>
-        </div>
-        <div class="article-item rv">
-          <span class="article-num">02</span>
-          <a class="article-title" href="https://medium.com/@nomad-link-id" target="_blank" rel="noopener">WiFi Off. Model Running. We Won the webAI YOLO26 Enterprise Track.</a>
-        </div>
-        <div class="article-item rv">
-          <span class="article-num">03</span>
-          <a class="article-title" href="https://medium.com/@igorcnnbd" target="_blank" rel="noopener">RAG Engineering in Practice: What Nobody Tells You</a>
-        </div>
-        <div class="article-item rv">
-          <span class="article-num">04</span>
-          <a class="article-title" href="https://medium.com/@igorcnnbd" target="_blank" rel="noopener">Healthcare AI Compliance: Building for Regulated Markets</a>
-        </div>
-        <div class="article-item rv">
-          <span class="article-num">05</span>
-          <a class="article-title" href="https://medium.com/@igorcnnbd" target="_blank" rel="noopener">Why I Left Venture Capital</a>
-        </div>
-        <div class="article-item rv">
-          <span class="article-num">06</span>
-          <a class="article-title" href="https://medium.com/@igorcnnbd" target="_blank" rel="noopener">LLM Routing: Why One Model Is Never Enough</a>
-        </div>
-      </div>
-    </div>
-  </section>
+  function validEmail(e){ return /^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(e); }
+  function recheck(){ btn.disabled = !(name.value.trim() && validEmail(email.value.trim()) && agree.checked); }
+  [name,email].forEach(function(el){ el.addEventListener('input', recheck); });
+  agree.addEventListener('change', recheck);
 
-  <!-- STACK -->
-  <section class="sec">
-    <div class="wrap">
-      <div class="bar rv"></div>
-      <span class="sec-label rv">Stack</span>
-      <div class="stack-grid rv">
-        <div class="stack-row">
-          <span class="stack-label">Languages</span>
-          <span class="stack-value">TypeScript &middot; Python &middot; SQL &middot; JavaScript</span>
-        </div>
-        <div class="stack-row">
-          <span class="stack-label">Frontend</span>
-          <span class="stack-value">Next.js &middot; React &middot; Tailwind</span>
-        </div>
-        <div class="stack-row">
-          <span class="stack-label">Backend</span>
-          <span class="stack-value">Node.js &middot; PostgreSQL &middot; pgvector &middot; Redis</span>
-        </div>
-        <div class="stack-row">
-          <span class="stack-label">AI / ML</span>
-          <span class="stack-value">RAG &middot; LLM routing &middot; embeddings &middot; rerankers &middot; safety architectures</span>
-        </div>
-        <div class="stack-row">
-          <span class="stack-label">Infra</span>
-          <span class="stack-value">Docker &middot; AWS &middot; Vercel</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- EXPERIENCE -->
-  <section class="sec sec-alt" id="experience">
-    <div class="wrap">
-      <div class="bar rv"></div>
-      <span class="sec-label rv">Experience</span>
-      <div class="funnel">
-        <div class="f-step rv">
-          <div class="f-dot"></div>
-          <div class="f-period">2024 &ndash; Present</div>
-          <div class="f-role">Applied AI Engineer &amp; Researcher</div>
-          <div class="f-org">Austin, TX</div>
-          <p class="f-desc">Scoped and shipped end-to-end AI solutions in regulated healthcare. 8 manuscripts. Patent pending. 2 hackathons won. OHDSI community member. Trilingual.</p>
-        </div>
-        <div class="f-step rv">
-          <div class="f-dot"></div>
-          <div class="f-period">2024 &ndash; Present</div>
-          <div class="f-role">Applied AI Research</div>
-          <div class="f-org">San Diego, CA &rarr; Austin, TX</div>
-          <p class="f-desc">Built clinical AI research system solo. Published peer-reviewed research. 5 open-source repos. 100+ tests. Academic programs at UC San Diego and Inter-American University.</p>
-        </div>
-        <div class="f-step rv">
-          <div class="f-dot"></div>
-          <div class="f-period">2018 &ndash; 2020</div>
-          <div class="f-role">Founder &amp; CEO</div>
-          <div class="f-org">Kubrick (acquired)</div>
-          <p class="f-desc">Influencer marketing platform. 6 engineers. Customers included Uber, Airbnb, Spotify. Technology licensed and acquired.</p>
-        </div>
-        <div class="f-step rv">
-          <div class="f-dot"></div>
-          <div class="f-period">2018 &ndash; 2024</div>
-          <div class="f-role">Talent Partner</div>
-          <div class="f-org">OpenVC / AVIV Partners &mdash; Strategy, Operations &amp; Technology</div>
-          <p class="f-desc">46 companies evaluated. R$1B+ AUM. Technology risk assessment. Mentor: Mauro Muratório (co-founder Microsoft Brazil).</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- EDUCATION -->
-  <section class="sec">
-    <div class="wrap">
-      <div class="bar rv"></div>
-      <span class="sec-label rv">Education</span>
-      <div class="edu-list">
-        <div class="edu-item rv">
-          <div>
-            <div class="edu-inst">Stanford University</div>
-            <div class="edu-program">Design Thinking</div>
-          </div>
-          <span class="edu-year">2019</span>
-        </div>
-        <div class="edu-item rv">
-          <div>
-            <div class="edu-inst">UC San Diego</div>
-            <div class="edu-program">International Programs</div>
-          </div>
-          <span class="edu-year">2024</span>
-        </div>
-        <div class="edu-item rv">
-          <div>
-            <div class="edu-inst">Inter-American University</div>
-            <div class="edu-program">Business Administration</div>
-          </div>
-          <span class="edu-year">2024 &ndash; 2025</span>
-        </div>
-        <div class="edu-item rv">
-          <div>
-            <div class="edu-inst">FMU University</div>
-            <div class="edu-program">Law (J.D.)</div>
-          </div>
-          <span class="edu-year">2012 &ndash; 2016</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- CONNECT -->
-  <section class="sec sec-alt" id="connect">
-    <div class="wrap">
-      <div class="bar rv"></div>
-      <span class="sec-label rv">Connect</span>
-      <div class="connect-grid rv">
-        <div class="connect-item">
-          <span class="connect-key">Web</span>
-          <a class="connect-val" href="https://igoreduardo.com">igoreduardo.com</a>
-        </div>
-        <div class="connect-item">
-          <span class="connect-key">GitHub</span>
-          <a class="connect-val" href="https://github.com/nomad-link-id" target="_blank" rel="noopener">github.com/nomad-link-id</a>
-        </div>
-        <div class="connect-item">
-          <span class="connect-key">Medium</span>
-          <a class="connect-val" href="https://medium.com/@nomad-link-id" target="_blank" rel="noopener">medium.com/@nomad-link-id</a>
-        </div>
-        <div class="connect-item">
-          <span class="connect-key">ORCID</span>
-          <a class="connect-val" href="https://orcid.org/0009-0005-6288-1135" target="_blank" rel="noopener">0009-0005-6288-1135</a>
-        </div>
-        <div class="connect-item">
-          <span class="connect-key">LinkedIn</span>
-          <a class="connect-val" href="https://linkedin.com/in/igor-eduardo-00z" target="_blank" rel="noopener">linkedin.com/in/igor-eduardo-00z</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <script>
-    window.addEventListener('scroll', () => {
-      document.getElementById('nav').classList.toggle('show', window.scrollY > 300);
-    });
-
-    const obs = new IntersectionObserver(e => {
-      e.forEach(x => { if (x.isIntersecting) x.target.classList.add('vis'); });
-    }, { threshold: .06, rootMargin: '0px 0px -30px 0px' });
-    document.querySelectorAll('.rv').forEach(el => obs.observe(el));
-
-    const fO = new IntersectionObserver(e => {
-      e.forEach(x => {
-        const d = x.target.querySelector('.f-dot');
-        if (d) {
-          if (x.isIntersecting) {
-            d.style.background = 'var(--accent)';
-            d.style.boxShadow = '0 0 0 4px var(--accent-light)';
-          } else {
-            d.style.background = 'var(--white)';
-            d.style.boxShadow = 'none';
-          }
-        }
+  btn.addEventListener('click', async function(){
+    btn.disabled = true; gerr.textContent = "";
+    viewer.name = name.value.trim(); viewer.email = email.value.trim();
+    try {
+      await fetch('/api/nda', {
+        method:'POST', headers:{'Content-Type':'application/json'},
+        body: JSON.stringify({ name:viewer.name, email:viewer.email, agreed:true })
       });
-    }, { threshold: .5 });
-    document.querySelectorAll('.f-step').forEach(el => fO.observe(el));
-  </script>
+    } catch(e){ /* log best-effort; do not block access */ }
+    document.getElementById('deck').src = DECK_FILE;
+    document.getElementById('gate').style.display = 'none';
+    document.getElementById('app').style.display = 'grid';
+  });
 
+  // Playground
+  var log = document.getElementById('log');
+  var q = document.getElementById('q');
+  var send = document.getElementById('send');
+
+  function bubble(text, who){
+    var d = document.createElement('div');
+    d.className = 'msg ' + (who==='u'?'u':'a');
+    d.textContent = text;
+    log.appendChild(d); log.scrollTop = log.scrollHeight;
+    return d;
+  }
+
+  async function ask(){
+    var text = q.value.trim();
+    if(!text) return;
+    q.value=''; send.disabled = true;
+    bubble(text,'u');
+    history.push({role:'user', content:text});
+    var thinking = bubble('...', 'a');
+    try {
+      var r = await fetch('/api/ask', {
+        method:'POST', headers:{'Content-Type':'application/json'},
+        body: JSON.stringify({ question:text, viewerEmail:viewer.email, history:history.slice(-6) })
+      });
+      var data = await r.json();
+      var ans = data.answer || data.error || 'Sem resposta.';
+      thinking.textContent = ans;
+      history.push({role:'assistant', content:ans});
+    } catch(e){
+      thinking.textContent = 'Erro de conexão. Tente novamente.';
+    }
+    send.disabled = false;
+  }
+  send.addEventListener('click', ask);
+  q.addEventListener('keydown', function(e){ if(e.key==='Enter' && !e.shiftKey){ e.preventDefault(); ask(); } });
+</script>
 </body>
 </html>
