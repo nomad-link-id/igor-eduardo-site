@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Brazilian-PHI — Igor Eduardo</title>
+<meta name="description" content="A short note on Brazilian-PHI: the first benchmark for detecting Brazilian PII in Portuguese clinical text. Seven identifier types with mod-11 checksum validation. Paper DOI 10.5281/zenodo.20076543.">
+<meta name="author" content="Igor Eduardo">
+<link rel="canonical" href="https://igoreduardo.com/writing/brazilian-phi.html">
+<meta property="og:title" content="Brazilian-PHI — Igor Eduardo">
+<meta property="og:description" content="The first benchmark for detecting Brazilian PII in Portuguese clinical text — seven identifier types with mod-11 checksum validation.">
+<meta property="og:url" content="https://igoreduardo.com/writing/brazilian-phi.html">
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_US">
+<meta property="article:author" content="Igor Eduardo">
+<meta property="article:published_time" content="2026-09-10">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": ["Article", "BlogPosting"],
+  "headline": "Brazilian-PHI",
+  "description": "A short note on Brazilian-PHI: the first benchmark for detecting Brazilian PII in Portuguese clinical text. Seven identifier types with mod-11 checksum validation. Paper DOI 10.5281/zenodo.20076543.",
+  "url": "https://igoreduardo.com/writing/brazilian-phi.html",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://igoreduardo.com/writing/brazilian-phi.html"
+  },
+  "datePublished": "2026-09-10",
+  "dateModified": "2026-09-10",
+  "inLanguage": "en",
+  "author": {
+    "@type": "Person",
+    "@id": "https://igoreduardo.com/#igor",
+    "name": "Igor Eduardo",
+    "url": "https://igoreduardo.com/"
+  },
+  "citation": {
+    "@type": "ScholarlyArticle",
+    "name": "Brazilian-PHI: Benchmarking Checksum-Validated Recognizers for CPF, CRM, CNS, CNPJ, RG, CEP, and Phone in Portuguese Clinical Text",
+    "author": {
+      "@type": "Person",
+      "@id": "https://igoreduardo.com/#igor",
+      "name": "Igor Eduardo",
+      "url": "https://igoreduardo.com/"
+    },
+    "identifier": "https://doi.org/10.5281/zenodo.20076543",
+    "url": "https://doi.org/10.5281/zenodo.20076543",
+    "datePublished": "2026"
+  }
+}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="wrap">
+    <nav class="site-nav">
+      <a class="brand" href="/">Igor Eduardo</a>
+      <div class="crumb"><a href="/">Home</a> · <a href="/writing/">Writing</a></div>
+    </nav>
+  </div>
+
+  <article class="article">
+    <div class="wrap">
+      <header class="page-head">
+        <div class="eyebrow">Writing</div>
+        <h1>Brazilian-PHI</h1>
+        <p class="byline">
+          <a href="https://igoreduardo.com/">Igor Eduardo</a>
+          · 10 September 2026
+          · DOI <a href="https://doi.org/10.5281/zenodo.20076543" target="_blank" rel="noopener">10.5281/zenodo.20076543</a>
+        </p>
+      </header>
+
+      <div class="prose">
+        <p class="lead">The public Brazilian-PHI work is the first benchmark for detecting Brazilian PII in Portuguese clinical text — seven identifier types with mod-11 checksum validation. This note restates only what is already on the site and in the Zenodo record.</p>
+
+        <p>The <a href="/#research">research page</a> names the artifact in those terms. The companion preprint is deposited at <a href="https://doi.org/10.5281/zenodo.20076543" target="_blank" rel="noopener">DOI 10.5281/zenodo.20076543</a>, titled <em>Brazilian-PHI: Benchmarking Checksum-Validated Recognizers for CPF, CRM, CNS, CNPJ, RG, CEP, and Phone in Portuguese Clinical Text</em> (Eduardo, 2026; Zenodo).</p>
+
+        <h2>What the record reports</h2>
+        <p>The Zenodo record states that the seven Brazilian PII types covered by the benchmark are CPF, CRM, CNS, CNPJ, RG, CEP, and phone numbers. The evaluation uses custom Presidio recognizers with mod-11 checksum validation, compared with default Presidio and Groq Llama 3.3 70B, across 500 synthetic Portuguese clinical notes (670 PII instances, 1,940 distractors).</p>
+        <p>As published in that record: custom Presidio achieves macro F1=1.000 versus 0.270 for default Presidio (McNemar chi2=313.003, p&lt;0.001) and is 80,000x faster than Llama 3.3. Checksum validation deterministically eliminates false positives for CPF and CNPJ. The record states that all code and corpus are released open-source.</p>
+
+        <h2>Public artifacts</h2>
+        <p>The paper is paired with a public repository, linked from the homepage. The Zenodo record also lists a Hugging Face dataset as a related identifier. This note does not add claims beyond those public sources.</p>
+      </div>
+
+      <div class="sources">
+        <a href="https://doi.org/10.5281/zenodo.20076543" target="_blank" rel="noopener">Paper</a>
+        <a href="https://github.com/nomad-link-id/brazilian-phi" target="_blank" rel="noopener">Repository</a>
+        <a href="https://huggingface.co/datasets/igor-eduardo-research/brazilian-phi" target="_blank" rel="noopener">Dataset</a>
+      </div>
+    </div>
+  </article>
+
+  <footer>
+    <div class="wrap">
+      <div class="foot-meta"><a href="/">Igor Eduardo</a> · <a href="/writing/">Writing</a> · Austin, Texas</div>
+      <div class="foot-gov">Everything published here is either publicly verifiable or intentionally generalized to respect client confidentiality and intellectual property.</div>
+    </div>
+  </footer>
+</body>
+</html>
