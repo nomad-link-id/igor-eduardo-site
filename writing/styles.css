@@ -46,6 +46,7 @@ a{color:inherit;text-decoration:none}
 }
 .site-nav a{transition:color .25s}
 .site-nav a:hover{color:var(--accent)}
+.site-nav a[aria-current="page"]{color:var(--fg)}
 
 .page-head{padding:clamp(48px,8vh,96px) 0 8px}
 .page-head h1{
@@ -58,6 +59,9 @@ a{color:inherit;text-decoration:none}
   max-width:48ch;color:var(--fg-dim);
   font-size:clamp(1.05rem,2vw,1.25rem);line-height:1.5;
 }
+.page-head .notice{max-width:68ch;margin-top:1.6em}
+.notice a{color:var(--fg-dim);border-bottom:1px solid var(--line)}
+.notice a:hover{color:var(--accent);border-bottom-color:var(--accent)}
 
 .list{padding:clamp(32px,6vh,72px) 0 clamp(80px,12vh,140px);
   border-top:1px solid var(--line-soft);margin-top:clamp(32px,6vh,64px)}
@@ -74,6 +78,42 @@ a{color:inherit;text-decoration:none}
 .entry h2 a{transition:color .25s}
 .entry h2 a:hover{color:var(--accent)}
 .entry p{color:var(--fg-dim);font-size:16px}
+.entry p a{border-bottom:1px solid var(--line);transition:color .25s,border-color .25s}
+.entry p a:hover{color:var(--accent);border-bottom-color:var(--accent)}
+.list-label{
+  font-family:var(--mono);font-size:12px;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--fg-mute);
+  margin:28px 0 0;
+}
+.list-label:first-child{margin-top:0}
+
+.profile{
+  display:grid;grid-template-columns:280px minmax(0,1fr);
+  gap:clamp(28px,5vw,72px);align-items:start;
+  padding:clamp(8px,2vh,20px) 0 clamp(36px,6vh,64px);
+}
+.portrait{margin:0}
+.portrait img{
+  width:100%;height:auto;display:block;
+  border:1px solid var(--line);background:var(--bg-raise);
+}
+.faq{
+  padding:clamp(8px,2vh,16px) 0 clamp(80px,12vh,140px);
+  border-top:1px solid var(--line-soft);
+}
+.faq h2{
+  font-family:var(--serif);font-weight:400;
+  font-size:clamp(1.6rem,3vw,2.2rem);letter-spacing:-.015em;
+  margin-bottom:8px;
+}
+.faq-item{max-width:var(--prose);padding:22px 0;border-top:1px solid var(--line-soft)}
+.faq-item h3{
+  font-family:var(--serif);font-weight:400;font-size:1.35rem;
+  letter-spacing:-.01em;margin-bottom:8px;
+}
+.faq-item p{color:var(--fg-dim);font-size:16px;line-height:1.7}
+.faq-item a{border-bottom:1px solid var(--line);transition:color .25s,border-color .25s}
+.faq-item a:hover{color:var(--accent);border-bottom-color:var(--accent)}
 .entry .more{
   display:inline-block;margin-top:20px;
   font-family:var(--mono);font-size:12.5px;letter-spacing:.03em;
@@ -168,6 +208,8 @@ footer{padding:0 0 48px}
 
 @media(max-width:760px){
   .spine{grid-template-columns:1fr 1fr}
+  .profile{grid-template-columns:1fr}
+  .portrait img{max-width:280px}
 }
 @media(prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
